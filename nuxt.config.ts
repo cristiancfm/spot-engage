@@ -2,5 +2,8 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxt/eslint'],
+	modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
+	i18n: {
+		vueI18n: './i18n.config.ts',
+	},
 });
