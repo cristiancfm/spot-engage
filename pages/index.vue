@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<button @click="setLocale('en')">en</button>
-		<button @click="setLocale('es')">es</button>
+		<Button icon="pi pi-home" label="en" @click="setLocale('en')"></Button>
+		<Button label="es" @click="setLocale('es')"></Button>
 		<h1>{{ $t('welcome') }}</h1>
 	</div>
 </template>
