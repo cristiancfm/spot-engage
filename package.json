@@ -8,10 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prettier": "prettier --write .",
-    "format": "npm-run-all -p lint:fix prettier"
+    "lint": "eslint --fix .",
+    "prettier": "prettier --write --ignore-unknown ."
   },
   "dependencies": {
     "@nuxtjs/i18n": "^9.4.0",
