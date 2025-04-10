@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter");
 
+/* Global styles */
 body {
   font-family: Inter, sans-serif;
   font-size: 16px;
@@ -18,4 +19,19 @@ h2 {
 h3 {
   font-size: 24px;
   font-weight: 700;
+}
+
+/* Component styles */
+.v-btn {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 400 !important;
+}
+
+.v-toolbar-items {
+  align-items: center;
+}
+.v-toolbar-items .v-btn {
+  height: 30px !important;
+  border-radius: 3px !important;
 }

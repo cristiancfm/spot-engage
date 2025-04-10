@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.2.0",
-    "@primevue/nuxt-module": "^4.3.3",
     "@types/node": "^22.13.13",
     "eslint": "^9.23.0",
     "eslint-plugin-prettier": "^5.2.5",

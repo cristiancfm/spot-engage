@@ -1,10 +1,17 @@
 {
   "welcome": "Bienvenido",
   "appName": "Lorem Ipsum",
+  "menu": {
+    "home": "Inicio",
+    "venues": "Locales",
+    "about": "Sobre nosotros",
+    "venueLogin": "Acceder como local",
+    "customerLogin": "Acceder como cliente"
+  },
   "index": {
     "title": "Elige la próxima canción",
     "description": "{appName} es la app que te permite elegir lo que suena en tus locales favoritos. Ahora, tú eres el DJ",
-    "primaryButton": "Entrar como cliente",
+    "primaryButton": "Acceder como cliente",
     "secondaryButton": "Información para locales"
   }
 }
