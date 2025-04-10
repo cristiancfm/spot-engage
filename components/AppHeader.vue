@@ -54,7 +54,9 @@
               <v-list-item-title>{{ $t("menu.about") }}</v-list-item-title>
             </v-list-item>
             <v-list-item @click="dialog = false">
-              <v-list-item-title>{{ $t("menu.customerLogin") }}</v-list-item-title>
+              <v-list-item-title>{{
+                $t("menu.customerLogin")
+              }}</v-list-item-title>
             </v-list-item>
             <v-list-item @click="dialog = false">
               <v-list-item-title>{{ $t("menu.venueLogin") }}</v-list-item-title>
