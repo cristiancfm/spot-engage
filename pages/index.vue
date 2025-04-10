@@ -2,8 +2,9 @@
   <div class="text-center p-4">
     <h1>{{ $t("index.title") }}</h1>
     <h2>{{ $t("index.description", { appName: $t("appName") }) }}</h2>
-    <Button :label="$t('index.primaryButton')" />
-    <Button :label="$t('index.secondaryButton')" class="p-button-secondary" />
+    <v-icon>settings</v-icon>
+    <v-btn>{{ $t("index.primaryButton") }}</v-btn>
+    <v-btn>{{ $t("index.secondaryButton") }}</v-btn>
   </div>
 </template>
 
