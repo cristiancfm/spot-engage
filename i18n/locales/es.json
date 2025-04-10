@@ -1,3 +1,10 @@
 {
-  "welcome": "Bienvenido"
+  "welcome": "Bienvenido",
+  "appName": "Lorem Ipsum",
+  "index": {
+    "title": "Elige la próxima canción",
+    "description": "{appName} es la app que te permite elegir lo que suena en tus locales favoritos. Ahora, tú eres el DJ",
+    "primaryButton": "Entrar como cliente",
+    "secondaryButton": "Información para locales"
+  }
 }

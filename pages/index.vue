@@ -1,18 +1,14 @@
 <template>
-  <div>
-    <Button icon="pi pi-home" label="en" @click="setLocale('en')" />
-    <Button label="es" @click="setLocale('es')" />
-    <h1>{{ $t("welcome") }}</h1>
+  <div class="text-center p-4">
+    <h1>{{ $t("index.title") }}</h1>
+    <h2>{{ $t("index.description", { appName: $t("appName") }) }}</h2>
+    <Button :label="$t('index.primaryButton')" />
+    <Button :label="$t('index.secondaryButton')" class="p-button-secondary" />
   </div>
 </template>
 
 <script>
 export default {
   name: "Index",
-  methods: {
-    setLocale(locale) {
-      this.$i18n.locale = locale;
-    },
-  },
 };
 </script>
