@@ -21,6 +21,34 @@ h3 {
   font-weight: 700;
 }
 
+/* Notifications */
+.notification {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+
+  background-color: #44a4fc !important;
+  border: 1px solid #187fe7 !important;
+  border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  &.success {
+    background: #68cd86 !important;
+    border-color: #42a85f !important;
+  }
+
+  &.warn {
+    background: #ffb648 !important;
+    border-color: #f48a06 !important;
+  }
+
+  &.error {
+    background: #e54d42 !important;
+    border-color: #b82e24 !important;
+  }
+}
+
 /* Component styles */
 .v-btn {
   text-transform: none !important;

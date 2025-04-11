@@ -11,9 +11,11 @@
 
       <v-toolbar-items>
         <v-btn>{{ $t("menu.venues") }}</v-btn>
-        <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
+        <v-btn :to="{ name: 'About' }">{{ $t("menu.about") }}</v-btn>
         <v-btn>{{ $t("menu.venueLogin") }}</v-btn>
-        <v-btn>{{ $t("menu.customerLogin") }}</v-btn>
+        <v-btn :to="{ name: 'ClientLogin' }">{{
+          $t("menu.clientLogin")
+        }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -50,12 +52,12 @@
             <v-list-item @click="dialog = false">
               <v-list-item-title>{{ $t("menu.venues") }}</v-list-item-title>
             </v-list-item>
-            <v-list-item :to="{ name: 'about' }" @click="dialog = false">
+            <v-list-item :to="{ name: 'About' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.about") }}</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="dialog = false">
+            <v-list-item :to="{ name: 'ClientLogin' }" @click="dialog = false">
               <v-list-item-title>{{
-                $t("menu.customerLogin")
+                $t("menu.clientLogin")
               }}</v-list-item-title>
             </v-list-item>
             <v-list-item @click="dialog = false">

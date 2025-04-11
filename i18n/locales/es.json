@@ -6,12 +6,22 @@
     "venues": "Locales",
     "about": "Sobre nosotros",
     "venueLogin": "Acceder como local",
-    "customerLogin": "Acceder como cliente"
+    "clientLogin": "Acceder como cliente"
   },
   "index": {
     "title": "Elige la próxima canción",
     "description": "{appName} es la app que te permite elegir lo que suena en tus locales favoritos. Ahora, tú eres el DJ",
     "primaryButton": "Acceder como cliente",
     "secondaryButton": "Información para locales"
+  },
+  "clientLogin": {
+    "title": "Acceder como cliente",
+    "description": "Introduce el código del local para acceder",
+    "accessCode": "Código de acceso",
+    "access": "Acceder",
+    "error": {
+      "required": "Se requiere el código de acceso",
+      "invalid": "Código de acceso inválido"
+    }
   }
 }
