@@ -11,9 +11,9 @@
 
       <v-toolbar-items>
         <v-btn>{{ $t("menu.venues") }}</v-btn>
-        <v-btn :to="{ name: 'About' }">{{ $t("menu.about") }}</v-btn>
+        <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
         <v-btn>{{ $t("menu.venueLogin") }}</v-btn>
-        <v-btn :to="{ name: 'ClientLogin' }">{{
+        <v-btn :to="{ name: 'clientLogin' }">{{
           $t("menu.clientLogin")
         }}</v-btn>
       </v-toolbar-items>
@@ -52,10 +52,10 @@
             <v-list-item @click="dialog = false">
               <v-list-item-title>{{ $t("menu.venues") }}</v-list-item-title>
             </v-list-item>
-            <v-list-item :to="{ name: 'About' }" @click="dialog = false">
+            <v-list-item :to="{ name: 'about' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.about") }}</v-list-item-title>
             </v-list-item>
-            <v-list-item :to="{ name: 'ClientLogin' }" @click="dialog = false">
+            <v-list-item :to="{ name: 'clientLogin' }" @click="dialog = false">
               <v-list-item-title>{{
                 $t("menu.clientLogin")
               }}</v-list-item-title>
@@ -72,7 +72,6 @@
 
 <script>
 export default {
-  name: "AppHeader",
   data() {
     return {
       dialog: false,

@@ -14,7 +14,7 @@
           variant="flat"
           color="primary"
           class="ma-2"
-          :to="{ name: 'ClientLogin' }"
+          :to="{ name: 'clientLogin' }"
           >{{ $t("index.primaryButton") }}</v-btn
         >
         <v-btn variant="flat" color="secondary" class="ma-2">{{
@@ -26,7 +26,5 @@
 </template>
 
 <script>
-export default {
-  name: "Index",
-};
+export default {};
 </script>
