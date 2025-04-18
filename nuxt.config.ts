@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "vuetify-nuxt-module",
     "nuxt3-notifications",
+    "@pinia/nuxt",
   ],
   css: ["~/assets/styles/main.scss"],
   i18n: {

@@ -15,6 +15,7 @@
             :rules="[(v) => !!v || $t('clientLogin.error.required')]"
           />
           <v-btn
+            variant="flat"
             color="primary"
             class="ma-2"
             :disabled="!formValid"
@@ -29,12 +30,18 @@
 </template>
 
 <script>
+import { mapStores } from "pinia";
+import { useWebsiteStore } from "~/store/website.js";
+
 export default {
   data() {
     return {
       formValid: false,
       accessCode: "",
     };
+  },
+  computed: {
+    ...mapStores(useWebsiteStore),
   },
   methods: {
     submit() {
@@ -44,12 +51,13 @@ export default {
           body: { accessCode: this.accessCode },
         })
           .then((response) => {
-            console.log(response);
+            this.websiteStore.accessCode = this.accessCode;
+            this.$router.push(`/venue/${response.id}`);
           })
           .catch((err) => {
             this.$notify({
-              title: err.response.status,
-              text: this.$t("clientLogin.error.invalid"),
+              title: this.$t("error"),
+              text: this.$t(err.data.message),
               type: "error",
             });
           });

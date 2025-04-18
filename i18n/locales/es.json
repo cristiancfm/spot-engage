@@ -1,12 +1,16 @@
 {
   "welcome": "Bienvenido",
   "appName": "Lorem Ipsum",
+  "error": "Error",
   "menu": {
     "home": "Inicio",
     "venues": "Locales",
     "about": "Sobre nosotros",
     "venueLogin": "Acceder como local",
     "clientLogin": "Acceder como cliente"
+  },
+  "loadingPage": {
+    "title": "Cargando..."
   },
   "index": {
     "title": "Elige la próxima canción",
@@ -23,5 +27,8 @@
       "required": "Se requiere el código de acceso",
       "invalid": "Código de acceso inválido"
     }
+  },
+  "venue": {
+    "playingQueue": "Cola de reproducción"
   }
 }
