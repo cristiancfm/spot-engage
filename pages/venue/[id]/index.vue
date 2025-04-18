@@ -12,7 +12,7 @@
             icon
             variant="flat"
             color="secondary"
-            size="large"
+            size="x-large"
             class="mb-2"
           >
             <v-icon>queue_music</v-icon>
