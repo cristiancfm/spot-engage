@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxtjs/i18n",
     "vuetify-nuxt-module",
-		"nuxt3-notifications"
+    "nuxt3-notifications",
   ],
   css: ["~/assets/styles/main.scss"],
   i18n: {
@@ -16,13 +16,13 @@ export default defineNuxtConfig({
   vuetify: {
     vuetifyOptions: {
       icons: {
-        defaultSet: "md"
-      }
-    }
+        defaultSet: "md",
+      },
+    },
   },
   runtimeConfig: {
     public: {
       apiBase: "https://mock.apidog.com/m1/877274-858713-default",
-    }
-  }
+    },
+  },
 });
