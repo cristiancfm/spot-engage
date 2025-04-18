@@ -19,13 +19,24 @@
     "secondaryButton": "Información para locales"
   },
   "clientLogin": {
-    "title": "Acceder como cliente",
+    "title": "Acceso para clientes",
     "description": "Introduce el código del local para acceder",
     "accessCode": "Código de acceso",
     "access": "Acceder",
     "error": {
-      "required": "Se requiere el código de acceso",
+      "required": "Campo requerido",
       "invalid": "Código de acceso inválido"
+    }
+  },
+  "venueLogin": {
+    "title": "Acceso para locales",
+    "description": "Introduce los datos de la cuenta para acceder",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "access": "Acceder",
+    "error": {
+      "required": "Campo requerido",
+      "invalid": "Correo electrónico o contraseña inválidos"
     }
   },
   "venue": {

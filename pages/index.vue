@@ -17,9 +17,13 @@
           :to="{ name: 'clientLogin' }"
           >{{ $t("index.primaryButton") }}</v-btn
         >
-        <v-btn variant="flat" color="secondary" class="ma-2">{{
-          $t("index.secondaryButton")
-        }}</v-btn>
+        <v-btn
+          variant="flat"
+          color="secondary"
+          class="ma-2"
+          :to="{ name: 'venueLogin' }"
+          >{{ $t("index.secondaryButton") }}</v-btn
+        >
       </v-col>
     </v-row>
   </v-container>
