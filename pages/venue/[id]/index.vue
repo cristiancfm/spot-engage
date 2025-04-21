@@ -5,7 +5,7 @@
         <h1>{{ venueName }}</h1>
       </v-col>
     </v-row>
-    <v-row justify="center" class="text-center">
+    <v-row justify="center">
       <v-col cols="12" md="4">
         <v-img :src="venueImageURL" width="100%" max-height="300" contain />
         <br />
