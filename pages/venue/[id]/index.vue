@@ -6,19 +6,25 @@
       </v-col>
     </v-row>
     <v-row justify="center" class="text-center">
-      <v-col cols="auto">
-        <div>
-          <v-btn
-            icon
-            variant="flat"
-            color="secondary"
-            size="x-large"
-            class="mb-2"
-          >
-            <v-icon>queue_music</v-icon>
-          </v-btn>
-          <p>{{ $t("venue.playingQueue") }}</p>
-        </div>
+      <v-col cols="12" md="4">
+        <v-img :src="venueImageURL" width="100%" max-height="300" contain />
+        <br />
+        <p>{{ venueDescription }}</p>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-tabs v-model="tab">
+          <v-tab value="playingQueue">{{ $t("venue.playingQueue") }}</v-tab>
+          <v-tab value="menu">Menu</v-tab>
+        </v-tabs>
+
+        <v-tabs-window v-model="tab">
+          <v-tabs-window-item value="playingQueue">
+            <playing-queue></playing-queue>
+          </v-tabs-window-item>
+          <v-tabs-window-item value="menu">
+            <p>Menu</p>
+          </v-tabs-window-item>
+        </v-tabs-window>
       </v-col>
     </v-row>
   </v-container>
@@ -34,6 +40,9 @@ export default {
     return {
       loading: false,
       venueName: "",
+      venueDescription: "",
+      venueImageURL: "",
+      tab: null,
     };
   },
   computed: {
@@ -53,6 +62,8 @@ export default {
       })
         .then((response) => {
           this.venueName = response.name;
+          this.venueDescription = response.description;
+          this.venueImageURL = response.imageURL;
         })
         .catch((err) => {
           this.$notify({
