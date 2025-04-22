@@ -23,7 +23,7 @@
 <script>
 import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.js";
-import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
+import { redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 
 export default {
   data() {
@@ -36,21 +36,7 @@ export default {
     async spotifyLogin() {
       const clientId = this.spotifyStore.clientId;
       const redirectUri = `${import.meta.env.VITE_APP_URL}/venue/1`;
-
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get("code");
-
-      if (!code) {
-        await redirectToAuthCodeFlow(clientId, redirectUri);
-      } else {
-        const verifier = localStorage.getItem("verifier");
-        this.spotifyStore.token = await getAccessToken({
-          clientId,
-          code,
-          redirectUri,
-          verifier,
-        });
-      }
+      await redirectToAuthCodeFlow(clientId, redirectUri);
     },
   },
 };
