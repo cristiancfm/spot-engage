@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col>
         <v-progress-linear color="primary" indeterminate rounded />
-        <h2>{{ $t("loadingPage.title") }}</h2>
+        <h2>{{ $t("loading") }}</h2>
       </v-col>
     </v-row>
   </v-container>

@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 
-export const useWebsiteStore = defineStore("website", {
+export const useSpotifyStore = defineStore("spotify", {
   state: () => ({
-    accessCode: null,
+    clientId: import.meta.env.VITE_SPOTIFY_CLIENT_ID || "",
     token: null,
+    profile: null,
   }),
   persist: {
     storage: piniaPluginPersistedstate.localStorage(),

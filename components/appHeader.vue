@@ -12,10 +12,13 @@
       <v-toolbar-items>
         <v-btn>{{ $t("menu.venues") }}</v-btn>
         <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
-        <v-btn :to="{ name: 'venueLogin' }">{{ $t("menu.venueLogin") }}</v-btn>
-        <v-btn :to="{ name: 'clientLogin' }">{{
+        <v-btn v-if="!isLogged" :to="{ name: 'venueLogin' }">{{
+          $t("menu.venueLogin")
+        }}</v-btn>
+        <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">{{
           $t("menu.clientLogin")
         }}</v-btn>
+        <v-btn v-if="isLogged" @click="logout">{{ $t("logout") }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -71,15 +74,32 @@
 </template>
 
 <script>
+import { mapStores } from "pinia";
+import { useWebsiteStore } from "~/store/website.js";
+
 export default {
   data() {
     return {
       dialog: false,
     };
   },
+  computed: {
+    ...mapStores(useWebsiteStore),
+    isLogged() {
+      return (
+        this.websiteStore.accessCode !== null ||
+        this.websiteStore.token !== null
+      );
+    },
+  },
   methods: {
     setLocale(locale) {
       this.$i18n.locale = locale;
+    },
+    logout() {
+      this.websiteStore.accessCode = null;
+      this.websiteStore.token = null;
+      this.$router.push("/");
     },
   },
 };

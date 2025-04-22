@@ -1,6 +1,9 @@
 {
   "welcome": "Bienvenido",
   "appName": "Lorem Ipsum",
+  "login": "Iniciar sesión",
+  "logout": "Cerrar sesión",
+  "loading": "Cargando...",
   "error": "Error",
   "menu": {
     "home": "Inicio",
@@ -8,9 +11,6 @@
     "about": "Sobre nosotros",
     "venueLogin": "Acceder como local",
     "clientLogin": "Acceder como cliente"
-  },
-  "loadingPage": {
-    "title": "Cargando..."
   },
   "index": {
     "title": "Elige la próxima canción",
@@ -40,6 +40,28 @@
     }
   },
   "venue": {
-    "playingQueue": "Cola de reproducción"
+    "playingQueue": "Cola de reproducción",
+    "settings": "Configuración"
+  },
+  "venuePlayingQueue": {
+    "title": "Cola de reproducción",
+    "currentlyPlaying": "Reproduciendo ahora",
+    "nextUp": "A continuación",
+    "empty": "No hay canciones en la cola de reproducción",
+    "addSong": "Añadir canción",
+    "removeSong": "Eliminar canción",
+    "songAdded": "Canción añadida a la cola de reproducción",
+    "songRemoved": "Canción eliminada de la cola de reproducción",
+    "error": {
+      "noQueue": "No se ha podido obtener la cola de reproducción",
+      "noToken": "El local no ha iniciado sesión en Spotify. Pídele al personal que inicie sesión.",
+      "tokenExpired": "El token de acceso de Spotify ha caducado. Pídele al personal que inicie sesión de nuevo."
+    }
+  },
+  "venueSettings": {
+    "spotifyLogin": {
+      "title": "Iniciar sesión en Spotify",
+      "description": "Para poder mostrar la cola de reproducción, necesitas iniciar sesión en Spotify."
+    }
   }
 }

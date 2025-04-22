@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "vuetify-nuxt-module",
     "nuxt3-notifications",
     "@pinia/nuxt",
+    "pinia-plugin-persistedstate/nuxt",
   ],
   css: ["~/assets/styles/main.scss"],
   i18n: {
