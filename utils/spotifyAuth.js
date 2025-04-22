@@ -1,4 +1,4 @@
-export function generateCodeVerifier(length = 128) {
+function _generateCodeVerifier(length = 128) {
   const possible =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   return Array.from({ length }, () =>
@@ -6,7 +6,7 @@ export function generateCodeVerifier(length = 128) {
   ).join("");
 }
 
-export async function generateCodeChallenge(codeVerifier) {
+async function _generateCodeChallenge(codeVerifier) {
   const data = new TextEncoder().encode(codeVerifier);
   const digest = await crypto.subtle.digest("SHA-256", data);
   return btoa(String.fromCharCode(...new Uint8Array(digest)))
@@ -36,4 +36,22 @@ export async function getAccessToken({
 
   const data = await result.json();
   return data.access_token;
+}
+
+export async function redirectToAuthCodeFlow(clientId, redirectUri) {
+  const verifier = _generateCodeVerifier();
+  const challenge = await _generateCodeChallenge(verifier);
+
+  localStorage.setItem("verifier", verifier);
+
+  const params = new URLSearchParams({
+    client_id: clientId,
+    response_type: "code",
+    redirect_uri: redirectUri,
+    scope: "user-read-private user-read-email",
+    code_challenge_method: "S256",
+    code_challenge: challenge,
+  });
+
+  window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
 }

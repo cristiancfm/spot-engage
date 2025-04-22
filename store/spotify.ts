@@ -8,5 +8,5 @@ export const useSpotifyStore = defineStore("spotify", {
   }),
   persist: {
     storage: piniaPluginPersistedstate.localStorage(),
-  }
+  },
 });

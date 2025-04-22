@@ -14,15 +14,15 @@
       <v-col cols="12" md="6">
         <v-tabs v-model="tab">
           <v-tab value="playingQueue">{{ $t("venue.playingQueue") }}</v-tab>
-          <v-tab value="menu">Menu</v-tab>
+          <v-tab value="settings">{{ $t("venue.settings") }}</v-tab>
         </v-tabs>
 
         <v-tabs-window v-model="tab">
           <v-tabs-window-item value="playingQueue">
-            <playing-queue></playing-queue>
+            <playing-queue />
           </v-tabs-window-item>
-          <v-tabs-window-item value="menu">
-            <p>Menu</p>
+          <v-tabs-window-item value="settings">
+            <venue-settings />
           </v-tabs-window-item>
         </v-tabs-window>
       </v-col>
@@ -71,7 +71,7 @@ export default {
             text: this.$t(err.data.message),
             type: "error",
           });
-          this.$router.push({ name: "clientLogin" });
+          this.$router.push("/");
         })
         .finally(() => {
           this.loading = false;

@@ -12,11 +12,13 @@
       <v-toolbar-items>
         <v-btn>{{ $t("menu.venues") }}</v-btn>
         <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
-        <v-btn :to="{ name: 'venueLogin' }">{{ $t("menu.venueLogin") }}</v-btn>
-        <v-btn v-if="!isClientLogged" :to="{ name: 'clientLogin' }">{{
+        <v-btn v-if="!isLogged" :to="{ name: 'venueLogin' }">{{
+          $t("menu.venueLogin")
+        }}</v-btn>
+        <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">{{
           $t("menu.clientLogin")
         }}</v-btn>
-        <v-btn v-else @click="clientLogout">{{ $t("menu.logout") }}</v-btn>
+        <v-btn v-if="isLogged" @click="logout">{{ $t("logout") }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -83,17 +85,21 @@ export default {
   },
   computed: {
     ...mapStores(useWebsiteStore),
-    isClientLogged() {
-      return this.websiteStore.accessCode !== null;
+    isLogged() {
+      return (
+        this.websiteStore.accessCode !== null ||
+        this.websiteStore.token !== null
+      );
     },
   },
   methods: {
     setLocale(locale) {
       this.$i18n.locale = locale;
     },
-    clientLogout() {
+    logout() {
       this.websiteStore.accessCode = null;
-      this.$router.push({ name: "clientLogin" });
+      this.websiteStore.token = null;
+      this.$router.push("/");
     },
   },
 };

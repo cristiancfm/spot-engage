@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 export const useWebsiteStore = defineStore("website", {
   state: () => ({

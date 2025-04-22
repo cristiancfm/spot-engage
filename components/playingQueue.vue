@@ -1,52 +1,87 @@
 <template>
-  <v-card>
-    <v-card-title>
-      {{ $t("playingQueue.title") }}
-    </v-card-title>
-    <v-card-text>
-      <v-list>
-        <v-list-group>
-          <v-list-item v-for="(song, index) in songs" :key="index">
-            <v-list-item-title>{{ song.title }}</v-list-item-title>
-            <v-list-item-subtitle>{{ song.artist }}</v-list-item-subtitle>
-          </v-list-item>
-        </v-list-group>
-      </v-list>
-    </v-card-text>
-  </v-card>
+  <v-container>
+    <v-card>
+      <v-card-title>
+        {{ $t("playingQueue.title") }}
+      </v-card-title>
+      <v-divider />
+      <v-card-text>
+        <v-list v-if="songs">
+          <v-list-group>
+            <v-list-item v-for="(song, index) in songs" :key="index">
+              <v-list-item-title>{{ song.title }}</v-list-item-title>
+              <v-list-item-subtitle>{{ song.artist }}</v-list-item-subtitle>
+            </v-list-item>
+          </v-list-group>
+        </v-list>
+        <v-row v-else class="text-center">
+          <v-col>
+            <v-row>
+              <v-col>
+                <v-icon size="x-large" class="mb-2">error</v-icon>
+                <p>{{ $t("playingQueue.error.noQueue") }}</p>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 import { mapStores } from "pinia";
-import { useWebsiteStore } from "~/store/website.js";
 import { useSpotifyStore } from "~/store/spotify.js";
-import { getAccessToken } from "~/utils/spotifyAuth.js";
-const { fetchProfile, redirectToAuthCodeFlow } = useSpotify();
+import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
+
+const { fetchProfile } = useSpotify();
 
 export default {
   data() {
     return {
-      songs: [],
+      songs: null,
       profile: null,
     };
   },
   computed: {
-    ...mapStores(useWebsiteStore, useSpotifyStore),
+    ...mapStores(useSpotifyStore),
   },
   created() {
     this.getPlayingQueue();
   },
   methods: {
-    async getPlayingQueue() {
-      const clientId = this.spotifyStore.clientId;
+    getPlayingQueue() {
       const storedToken = this.spotifyStore.token;
-      const redirectUri = "http://127.0.0.1:3000/venue/1";
 
       if (storedToken) {
-        this.spotifyStore.profile = await fetchProfile(storedToken);
-        console.log(this.spotifyStore.profile);
-        return;
+        fetchProfile(storedToken)
+          .then((res) => {
+            this.profile = res;
+            console.log(this.profile);
+          })
+          .catch((err) => {
+            if (err.status === 401) {
+              // Token expired
+              this.spotifyStore.token = null;
+              this.$notify({
+                title: this.$t("error"),
+                text: this.$t(err.data.message),
+                type: "error",
+              });
+            }
+          });
+      } else {
+        // No token
+        this.$notify({
+          title: this.$t("error"),
+          text: this.$t("playingQueue.error.noToken"),
+          type: "error",
+        });
       }
+    },
+    async spotifyLogin() {
+      const clientId = this.spotifyStore.clientId;
+      const redirectUri = `${import.meta.env.VITE_APP_URL}/venue/1`;
 
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
@@ -55,17 +90,13 @@ export default {
         await redirectToAuthCodeFlow(clientId, redirectUri);
       } else {
         const verifier = localStorage.getItem("verifier");
-        const token = await getAccessToken({
+        this.spotifyStore.token = await getAccessToken({
           clientId,
           code,
           redirectUri,
           verifier,
         });
-        this.spotifyStore.token = token;
-        this.spotifyStore.profile = await fetchProfile(token);
       }
-
-
     },
   },
 };
