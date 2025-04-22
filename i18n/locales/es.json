@@ -54,6 +54,7 @@
     "songRemoved": "Canción eliminada de la cola de reproducción",
     "error": {
       "noQueue": "No se ha podido obtener la cola de reproducción",
+      "noSongs": "No hay canciones en la cola de reproducción",
       "noToken": "El local no ha iniciado sesión en Spotify. Pídele al personal que inicie sesión.",
       "tokenExpired": "El token de acceso de Spotify ha caducado. Pídele al personal que inicie sesión de nuevo."
     }

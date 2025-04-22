@@ -6,15 +6,25 @@
       </v-card-title>
       <v-divider />
       <v-card-text>
-        <v-list v-if="songs">
-          <v-list-group>
-            <v-list-item v-for="(song, index) in songs" :key="index">
-              <v-list-item-title>{{ song.title }}</v-list-item-title>
-              <v-list-item-subtitle>{{ song.artist }}</v-list-item-subtitle>
-            </v-list-item>
-          </v-list-group>
+        <v-list v-if="queue && queue.queue.length > 0">
+          <v-list-item v-for="(song, index) in queue.queue" :key="index">
+            <v-list-item-title>{{ song.name }}</v-list-item-title>
+            <v-list-item-subtitle>{{
+              song.artists[0].name
+            }}</v-list-item-subtitle>
+          </v-list-item>
         </v-list>
-        <v-row v-else class="text-center">
+        <v-row v-if="queue && queue.queue.length === 0" class="text-center">
+          <v-col>
+            <v-row>
+              <v-col>
+                <v-icon size="x-large" class="mb-2">info</v-icon>
+                <p>{{ $t("venuePlayingQueue.error.noSongs") }}</p>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+        <v-row v-if="!queue" class="text-center">
           <v-col>
             <v-row>
               <v-col>
@@ -34,13 +44,12 @@ import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.js";
 import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 
-const { fetchProfile } = useSpotify();
+const { fetchQueue } = useSpotify();
 
 export default {
   data() {
     return {
-      songs: null,
-      profile: null,
+      queue: null,
     };
   },
   computed: {
@@ -54,10 +63,10 @@ export default {
       const storedToken = this.spotifyStore.token;
 
       if (storedToken) {
-        fetchProfile(storedToken)
+        fetchQueue(storedToken)
           .then((res) => {
-            this.profile = res;
-            console.log(this.profile);
+            this.queue = res;
+            console.log(this.queue);
           })
           .catch((err) => {
             if (err.status === 401) {
@@ -65,7 +74,7 @@ export default {
               this.spotifyStore.token = null;
               this.$notify({
                 title: this.$t("error"),
-                text: this.$t(err.data.message),
+                text: this.$t("venuePlayingQueue.error.tokenExpired"),
                 type: "error",
               });
             }
