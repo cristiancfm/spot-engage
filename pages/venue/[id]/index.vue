@@ -8,7 +8,7 @@
     <v-row justify="center">
       <v-col cols="12" md="4">
         <v-img :src="venueImageURL" width="100%" max-height="300" contain />
-        <br />
+        <br >
         <p>{{ venueDescription }}</p>
       </v-col>
       <v-col cols="12" md="6">
@@ -19,7 +19,7 @@
 
         <v-tabs-window v-model="tab">
           <v-tabs-window-item value="playingQueue">
-            <playing-queue />
+            <venue-playing-queue />
           </v-tabs-window-item>
           <v-tabs-window-item value="settings">
             <venue-settings />

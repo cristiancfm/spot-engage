@@ -45,7 +45,7 @@
     "playingQueue": "Cola de reproducción",
     "settings": "Configuración"
   },
-  "playingQueue": {
+  "venuePlayingQueue": {
     "title": "Cola de reproducción",
     "empty": "No hay canciones en la cola de reproducción",
     "addSong": "Añadir canción",

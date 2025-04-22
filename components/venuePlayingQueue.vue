@@ -2,7 +2,7 @@
   <v-container>
     <v-card>
       <v-card-title>
-        {{ $t("playingQueue.title") }}
+        {{ $t("venuePlayingQueue.title") }}
       </v-card-title>
       <v-divider />
       <v-card-text>
@@ -19,7 +19,7 @@
             <v-row>
               <v-col>
                 <v-icon size="x-large" class="mb-2">error</v-icon>
-                <p>{{ $t("playingQueue.error.noQueue") }}</p>
+                <p>{{ $t("venuePlayingQueue.error.noQueue") }}</p>
               </v-col>
             </v-row>
           </v-col>
@@ -74,7 +74,7 @@ export default {
         // No token
         this.$notify({
           title: this.$t("error"),
-          text: this.$t("playingQueue.error.noToken"),
+          text: this.$t("venuePlayingQueue.error.noToken"),
           type: "error",
         });
       }
