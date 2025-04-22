@@ -24,14 +24,28 @@
         <v-row>
           <v-col>
             <v-text-field
+              v-model="searchText"
               :placeholder="$t('search')"
               append-inner-icon="search"
+              @update:model-value="searchTracks"
             />
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <h4>Resultados</h4>
+            <v-list v-if="searchResult">
+              <track-item
+                v-for="(track, index) in searchResult.items"
+                :key="index"
+                :track="track"
+              />
+            </v-list>
+            <v-row v-else class="text-center">
+              <v-col>
+                <v-icon size="x-large" class="mb-2">info</v-icon>
+                <p>{{ $t("venuePlayingQueue.searchNoResults") }}</p>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-card-text>
@@ -39,6 +53,11 @@
   </v-dialog>
 </template>
 <script>
+import { mapStores } from "pinia";
+import { useSpotifyStore } from "~/store/spotify.js";
+
+const { fetchTracks } = useSpotify();
+
 export default {
   props: {
     dialog: {
@@ -47,5 +66,33 @@ export default {
     },
   },
   emits: ["update:dialog"],
+  data() {
+    return {
+      loading: false,
+      searchText: "",
+      searchResult: null,
+    };
+  },
+  computed: {
+    ...mapStores(useSpotifyStore),
+  },
+  methods: {
+    searchTracks() {
+      const storedToken = this.spotifyStore.token;
+
+      this.loading = true;
+      fetchTracks(storedToken, this.searchText)
+        .then((response) => {
+          this.searchResult = response.tracks;
+          console.log(this.searchResult);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+          this.loading = false;
+        });
+    },
+  },
 };
 </script>

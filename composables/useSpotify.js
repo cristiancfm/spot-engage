@@ -13,8 +13,21 @@ export function useSpotify() {
     });
   };
 
+  const fetchTracks = async (token, searchText) => {
+    return $fetch("https://api.spotify.com/v1/search", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+      params: {
+        q: searchText,
+        type: "track",
+        limit: 10,
+      },
+    });
+  };
+
   return {
     fetchProfile,
-    fetchQueue
+    fetchQueue,
+    fetchTracks,
   };
 }

@@ -50,9 +50,9 @@
                 <h4 class="ml-3 mt-4">{{ $t("venuePlayingQueue.nextUp") }}</h4>
                 <v-list>
                   <track-item
-                    v-for="(song, index) in playingQueue.queue"
+                    v-for="(track, index) in playingQueue.queue"
                     :key="index"
-                    :track="song"
+                    :track="track"
                     removable
                   />
                 </v-list>
