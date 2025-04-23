@@ -15,6 +15,14 @@
       <v-col v-if="removable" cols="auto">
         <v-btn variant="flat" density="comfortable" icon="close" />
       </v-col>
+      <v-col v-if="addToQueue" cols="auto">
+        <v-btn
+          variant="flat"
+          density="comfortable"
+          icon="add"
+          @click="$emit('update:add-to-queue', track)"
+        />
+      </v-col>
     </v-row>
   </v-list-item>
 </template>
@@ -30,6 +38,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    addToQueue: {
+      type: Boolean,
+      default: false,
+    },
   },
+  emits: ["update:add-to-queue"],
 };
 </script>

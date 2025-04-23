@@ -53,6 +53,10 @@
     "removeSong": "Eliminar canción",
     "songAdded": "Canción añadida a la cola de reproducción",
     "songRemoved": "Canción eliminada de la cola de reproducción",
+    "search": {
+      "placeholder": "Los resultados aparecerán aquí",
+      "results": "Resultados"
+    },
     "error": {
       "noQueue": "No se ha podido obtener la cola de reproducción",
       "noToken": "El local no ha iniciado sesión en Spotify. Pídele al personal que inicie sesión.",

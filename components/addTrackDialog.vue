@@ -27,25 +27,34 @@
               v-model="searchText"
               :placeholder="$t('search')"
               append-inner-icon="search"
+              hide-details="auto"
               @update:model-value="searchTracks"
             />
           </v-col>
         </v-row>
-        <v-row>
+        <v-row
+          v-if="searchResult && searchText"
+          style="max-height: 430px; overflow-y: auto"
+        >
           <v-col>
-            <v-list v-if="searchResult">
+            <h4 class="ml-3">
+              {{ $t("venuePlayingQueue.search.results") }}
+            </h4>
+            <v-list>
               <track-item
                 v-for="(track, index) in searchResult.items"
                 :key="index"
                 :track="track"
+                add-to-queue
+                @update:add-to-queue="$emit('update:add-to-queue', $event)"
               />
             </v-list>
-            <v-row v-else class="text-center">
-              <v-col>
-                <v-icon size="x-large" class="mb-2">info</v-icon>
-                <p>{{ $t("venuePlayingQueue.searchNoResults") }}</p>
-              </v-col>
-            </v-row>
+          </v-col>
+        </v-row>
+        <v-row v-else class="text-center">
+          <v-col>
+            <v-icon size="x-large" class="mb-2">music_note</v-icon>
+            <p>{{ $t("venuePlayingQueue.search.placeholder") }}</p>
           </v-col>
         </v-row>
       </v-card-text>
@@ -65,7 +74,7 @@ export default {
       default: false,
     },
   },
-  emits: ["update:dialog"],
+  emits: ["update:dialog", "update:add-to-queue"],
   data() {
     return {
       loading: false,

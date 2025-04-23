@@ -78,7 +78,11 @@
         </v-row>
       </v-card-text>
     </v-card>
-    <add-track-dialog :dialog="addDialog" @update:dialog="addDialog = false" />
+    <add-track-dialog
+      :dialog="addDialog"
+      @update:dialog="addDialog = false"
+      @update:add-to-queue="addToQueue"
+    />
   </v-container>
 </template>
 
@@ -138,6 +142,9 @@ export default {
           type: "error",
         });
       }
+    },
+    addToQueue(track) {
+      console.log(track);
     },
     async spotifyLogin() {
       const clientId = this.spotifyStore.clientId;
