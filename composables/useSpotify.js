@@ -25,9 +25,20 @@ export function useSpotify() {
     });
   };
 
+  const addTrackToQueue = async (token, trackUri) => {
+    return $fetch(
+      `https://api.spotify.com/v1/me/player/queue?uri=${encodeURIComponent(trackUri)}`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
+  };
+
   return {
     fetchProfile,
     fetchQueue,
     fetchTracks,
+    addTrackToQueue,
   };
 }

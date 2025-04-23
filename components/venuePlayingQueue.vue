@@ -92,7 +92,7 @@ import { useSpotifyStore } from "~/store/spotify.js";
 import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 import TrackItem from "~/components/trackItem.vue";
 
-const { fetchQueue } = useSpotify();
+const { fetchQueue, addTrackToQueue } = useSpotify();
 
 export default {
   components: { TrackItem },
@@ -144,7 +144,34 @@ export default {
       }
     },
     addToQueue(track) {
-      console.log(track);
+      const storedToken = this.spotifyStore.token;
+
+      if (storedToken) {
+        this.loading = true;
+        addTrackToQueue(storedToken, track.uri)
+          .then(() => {
+            this.$notify({
+              title: this.$t("success"),
+              text: this.$t("venuePlayingQueue.songAdded"),
+              type: "success",
+            });
+            this.getPlayingQueue();
+          })
+          .catch((err) => {
+            if (err.status === 401) {
+              // Token expired
+              this.spotifyStore.token = null;
+              this.$notify({
+                title: this.$t("error"),
+                text: this.$t("venuePlayingQueue.error.tokenExpired"),
+                type: "error",
+              });
+            }
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
     },
     async spotifyLogin() {
       const clientId = this.spotifyStore.clientId;
