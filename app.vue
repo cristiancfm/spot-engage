@@ -4,7 +4,7 @@
       <NuxtNotifications
         position="top center"
         :speed="500"
-        :width="500"
+        :width="400"
         classes="notification"
       />
       <NuxtLayout>
