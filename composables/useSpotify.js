@@ -25,7 +25,7 @@ export function useSpotify() {
     });
   };
 
-  const addTrackToQueue = async (token, trackUri) => {
+  const submitTrackToQueue = async (token, trackUri) => {
     return $fetch(
       `https://api.spotify.com/v1/me/player/queue?uri=${encodeURIComponent(trackUri)}`,
       {
@@ -39,6 +39,6 @@ export function useSpotify() {
     fetchProfile,
     fetchQueue,
     fetchTracks,
-    addTrackToQueue,
+    submitTrackToQueue,
   };
 }

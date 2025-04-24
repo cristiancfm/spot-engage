@@ -8,6 +8,14 @@
           </v-col>
           <v-col cols="auto">
             <v-btn
+              v-if="playingQueue"
+              class="mr-2"
+              variant="flat"
+              density="comfortable"
+              icon="refresh"
+              @click="getPlayingQueue"
+            />
+            <v-btn
               v-if="playingQueue?.currently_playing"
               color="primary"
               variant="flat"
@@ -92,7 +100,7 @@ import { useSpotifyStore } from "~/store/spotify.js";
 import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 import TrackItem from "~/components/trackItem.vue";
 
-const { fetchQueue, addTrackToQueue } = useSpotify();
+const { fetchQueue, submitTrackToQueue } = useSpotify();
 
 export default {
   components: { TrackItem },
@@ -147,15 +155,16 @@ export default {
       const storedToken = this.spotifyStore.token;
 
       if (storedToken) {
-        this.loading = true;
-        addTrackToQueue(storedToken, track.uri)
+        submitTrackToQueue(storedToken, track.uri)
           .then(() => {
             this.$notify({
               title: this.$t("success"),
               text: this.$t("venuePlayingQueue.songAdded"),
               type: "success",
             });
-            this.getPlayingQueue();
+            setTimeout(() => {
+              this.getPlayingQueue();
+            }, 200);
           })
           .catch((err) => {
             if (err.status === 401) {
@@ -167,9 +176,6 @@ export default {
                 type: "error",
               });
             }
-          })
-          .finally(() => {
-            this.loading = false;
           });
       }
     },
