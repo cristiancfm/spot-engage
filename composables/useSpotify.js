@@ -35,10 +35,26 @@ export function useSpotify() {
     );
   };
 
+  const fetchCurrentlyPlayingTrack = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/currently-playing", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
+  const skipToNextTrack = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/next", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
   return {
     fetchProfile,
     fetchQueue,
     fetchTracks,
     submitTrackToQueue,
+    fetchCurrentlyPlayingTrack,
+    skipToNextTrack,
   };
 }

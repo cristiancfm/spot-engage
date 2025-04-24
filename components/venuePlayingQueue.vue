@@ -41,7 +41,11 @@
                 {{ $t("venuePlayingQueue.currentlyPlaying") }}
               </h4>
               <v-list>
-                <track-item :track="playingQueue.currently_playing" />
+                <track-item
+                  :track="playingQueue.currently_playing"
+                  playback
+                  @update:playback="getPlayingQueue"
+                />
               </v-list>
             </v-col>
           </v-row>
@@ -61,7 +65,6 @@
                     v-for="(track, index) in playingQueue.queue"
                     :key="index"
                     :track="track"
-                    removable
                   />
                 </v-list>
               </v-col>
@@ -164,7 +167,7 @@ export default {
             });
             setTimeout(() => {
               this.getPlayingQueue();
-            }, 200);
+            }, 300);
           })
           .catch((err) => {
             if (err.status === 401) {

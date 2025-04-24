@@ -28,6 +28,7 @@
               :placeholder="$t('search')"
               append-inner-icon="search"
               hide-details="auto"
+              clearable
               @update:model-value="searchTracks"
             />
           </v-col>
