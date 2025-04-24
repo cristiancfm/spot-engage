@@ -42,6 +42,23 @@ export function useSpotify() {
     });
   };
 
+  const startPlayback = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/play", {
+      method: "PUT",
+      headers: { Authorization: `Bearer ${token}` },
+      body: {
+        position_ms: 0,
+      },
+    });
+  };
+
+  const pausePlayback = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/pause", {
+      method: "PUT",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
   const skipToNextTrack = async (token) => {
     return $fetch("https://api.spotify.com/v1/me/player/next", {
       method: "POST",
@@ -55,6 +72,8 @@ export function useSpotify() {
     fetchTracks,
     submitTrackToQueue,
     fetchCurrentlyPlayingTrack,
+    startPlayback,
+    pausePlayback,
     skipToNextTrack,
   };
 }

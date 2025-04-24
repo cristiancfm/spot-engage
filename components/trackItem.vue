@@ -20,14 +20,14 @@
             variant="flat"
             density="comfortable"
             icon="play_arrow"
-            @click=""
+            @click="playTrack"
           />
           <v-btn
             v-else-if="isCurrentlyPlaying"
             variant="flat"
             density="comfortable"
             icon="pause"
-            @click=""
+            @click="pauseTrack"
           />
           <v-btn
             variant="flat"
@@ -53,7 +53,12 @@
 import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.js";
 
-const { fetchCurrentlyPlayingTrack, skipToNextTrack } = useSpotify();
+const {
+  fetchCurrentlyPlayingTrack,
+  startPlayback,
+  pausePlayback,
+  skipToNextTrack,
+} = useSpotify();
 
 export default {
   props: {
@@ -103,6 +108,32 @@ export default {
           });
       }
     },
+    playTrack() {
+      const storedToken = this.spotifyStore.token;
+
+      if (storedToken) {
+        startPlayback(storedToken)
+          .then(() => {
+            this.isCurrentlyPlaying = true;
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+    },
+    pauseTrack() {
+      const storedToken = this.spotifyStore.token;
+
+      if (storedToken) {
+        pausePlayback(storedToken)
+          .then(() => {
+            this.isCurrentlyPlaying = false;
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+    },
     skipTrack() {
       const storedToken = this.spotifyStore.token;
 
@@ -118,7 +149,7 @@ export default {
             console.error(error);
           });
       }
-    }
+    },
   },
 };
 </script>
