@@ -2,21 +2,21 @@
   <v-container v-if="!loading">
     <v-row class="text-center">
       <v-col>
-        <h1>{{ venueName }}</h1>
+        <h1>{{ venue.name }}</h1>
       </v-col>
     </v-row>
     <v-row justify="center">
       <v-col cols="12" md="4">
         <p class="mb-4">
-          <v-img :src="venueImageURL" width="100%" max-height="300" contain />
+          <v-img :src="venue.imageURL" width="100%" max-height="300" contain />
         </p>
-        <p class="mb-4">{{ venueDescription }}</p>
+        <p class="mb-4">{{ venue.description }}</p>
         <p class="mb-4">
           <v-row>
-            <v-col v-for="item in venueSocialURLs" :key="item" cols="auto">
+            <v-col cols="auto">
               <a
-                v-if="item.instagram"
-                :href="item.instagram"
+                v-if="venue.socialURLs.instagram"
+                :href="venue.socialURLs.instagram"
                 target="_blank"
                 title="Instagram"
               >
@@ -26,9 +26,11 @@
                   width="30px"
                 />
               </a>
+            </v-col>
+            <v-col>
               <a
-                v-if="item.facebook"
-                :href="item.facebook"
+                v-if="venue.socialURLs.facebook"
+                :href="venue.socialURLs.facebook"
                 target="_blank"
                 title="Facebook"
               >
@@ -38,26 +40,30 @@
                   width="30px"
                 />
               </a>
+            </v-col>
+            <v-col>
               <a
-                v-if="item.twitter"
-                :href="item.twitter"
+                v-if="venue.socialURLs.twitter"
+                :href="venue.socialURLs.twitter"
                 target="_blank"
                 title="Twitter"
               >
                 <v-img
-                  src="/icons/socials/facebook.svg"
+                  src="/icons/socials/twitter.svg"
                   height="30px"
                   width="30px"
                 />
               </a>
+            </v-col>
+            <v-col>
               <a
-                v-if="item.tiktok"
-                :href="item.tiktok"
+                v-if="venue.socialURLs.tiktok"
+                :href="venue.socialURLs.tiktok"
                 target="_blank"
                 title="TikTok"
               >
                 <v-img
-                  src="/icons/socials/facebook.svg"
+                  src="/icons/socials/tiktok.svg"
                   height="30px"
                   width="30px"
                 />
@@ -77,7 +83,7 @@
             <venue-playing-queue />
           </v-tabs-window-item>
           <v-tabs-window-item value="settings">
-            <venue-settings />
+            <venue-settings :venue="venue" />
           </v-tabs-window-item>
         </v-tabs-window>
       </v-col>
@@ -96,10 +102,12 @@ export default {
   data() {
     return {
       loading: false,
-      venueName: "",
-      venueDescription: "",
-      venueImageURL: "",
-      venueSocialURLs: [],
+      venue: {
+        name: "",
+        description: "",
+        imageURL: "",
+        socialURLs: [],
+      },
       tab: null,
     };
   },
@@ -120,10 +128,7 @@ export default {
         },
       })
         .then((response) => {
-          this.venueName = response.name;
-          this.venueDescription = response.description;
-          this.venueImageURL = response.imageURL;
-          this.venueSocialURLs = response.socialURLs;
+          this.venue = response;
         })
         .catch((err) => {
           this.$notify({

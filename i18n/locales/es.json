@@ -7,6 +7,7 @@
   "search": "Buscar",
   "success": "Éxito",
   "error": "Error",
+  "save": "Guardar",
   "menu": {
     "home": "Inicio",
     "venues": "Locales",
@@ -68,6 +69,18 @@
     "spotifyLogin": {
       "title": "Iniciar sesión en Spotify",
       "description": "Para poder mostrar la cola de reproducción, necesitas iniciar sesión en Spotify."
+    },
+    "modifyVenue": {
+      "title": "Modificar datos del local",
+      "description": "Cambia el nombre, la descripción, la imagen y las redes sociales del local.",
+      "button": "Modificar local"
     }
+  },
+  "venueModify": {
+    "title": "Modificar local",
+    "name": "Nombre del local",
+    "description": "Descripción del local",
+    "imageURL": "Imagen del local (URL)",
+    "socials": "Redes sociales"
   }
 }
