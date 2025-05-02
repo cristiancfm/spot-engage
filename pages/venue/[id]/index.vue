@@ -12,10 +12,9 @@
         </p>
         <p class="mb-4">{{ venue.description }}</p>
         <p class="mb-4">
-          <v-row>
-            <v-col cols="auto">
+          <v-row justify="center">
+            <v-col v-if="venue.socialURLs.instagram" cols="auto">
               <a
-                v-if="venue.socialURLs.instagram"
                 :href="venue.socialURLs.instagram"
                 target="_blank"
                 title="Instagram"
@@ -27,9 +26,8 @@
                 />
               </a>
             </v-col>
-            <v-col>
+            <v-col v-if="venue.socialURLs.facebook" cols="auto">
               <a
-                v-if="venue.socialURLs.facebook"
                 :href="venue.socialURLs.facebook"
                 target="_blank"
                 title="Facebook"
@@ -41,9 +39,8 @@
                 />
               </a>
             </v-col>
-            <v-col>
+            <v-col v-if="venue.socialURLs.twitter" cols="auto">
               <a
-                v-if="venue.socialURLs.twitter"
                 :href="venue.socialURLs.twitter"
                 target="_blank"
                 title="Twitter"
@@ -55,9 +52,8 @@
                 />
               </a>
             </v-col>
-            <v-col>
+            <v-col v-if="venue.socialURLs.tiktok" cols="auto">
               <a
-                v-if="venue.socialURLs.tiktok"
                 :href="venue.socialURLs.tiktok"
                 target="_blank"
                 title="TikTok"
