@@ -7,9 +7,64 @@
     </v-row>
     <v-row justify="center">
       <v-col cols="12" md="4">
-        <v-img :src="venueImageURL" width="100%" max-height="300" contain />
-        <br />
-        <p>{{ venueDescription }}</p>
+        <p class="mb-4">
+          <v-img :src="venueImageURL" width="100%" max-height="300" contain />
+        </p>
+        <p class="mb-4">{{ venueDescription }}</p>
+        <p class="mb-4">
+          <v-row>
+            <v-col v-for="item in venueSocialURLs" :key="item" cols="auto">
+              <a
+                v-if="item.instagram"
+                :href="item.instagram"
+                target="_blank"
+                title="Instagram"
+              >
+                <v-img
+                  src="/icons/socials/instagram.svg"
+                  height="30px"
+                  width="30px"
+                />
+              </a>
+              <a
+                v-if="item.facebook"
+                :href="item.facebook"
+                target="_blank"
+                title="Facebook"
+              >
+                <v-img
+                  src="/icons/socials/facebook.svg"
+                  height="30px"
+                  width="30px"
+                />
+              </a>
+              <a
+                v-if="item.twitter"
+                :href="item.twitter"
+                target="_blank"
+                title="Twitter"
+              >
+                <v-img
+                  src="/icons/socials/facebook.svg"
+                  height="30px"
+                  width="30px"
+                />
+              </a>
+              <a
+                v-if="item.tiktok"
+                :href="item.tiktok"
+                target="_blank"
+                title="TikTok"
+              >
+                <v-img
+                  src="/icons/socials/facebook.svg"
+                  height="30px"
+                  width="30px"
+                />
+              </a>
+            </v-col>
+          </v-row>
+        </p>
       </v-col>
       <v-col cols="12" md="6">
         <v-tabs v-model="tab">
@@ -44,6 +99,7 @@ export default {
       venueName: "",
       venueDescription: "",
       venueImageURL: "",
+      venueSocialURLs: [],
       tab: null,
     };
   },
@@ -67,6 +123,7 @@ export default {
           this.venueName = response.name;
           this.venueDescription = response.description;
           this.venueImageURL = response.imageURL;
+          this.venueSocialURLs = response.socialURLs;
         })
         .catch((err) => {
           this.$notify({
