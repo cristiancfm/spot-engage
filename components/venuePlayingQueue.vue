@@ -129,7 +129,6 @@ export default {
         fetchQueue(storedToken)
           .then((res) => {
             this.playingQueue = res;
-            console.log(this.playingQueue);
           })
           .catch((err) => {
             if (err.status === 401) {
