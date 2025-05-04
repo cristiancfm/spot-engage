@@ -8,6 +8,14 @@
           </v-col>
           <v-col cols="auto">
             <v-btn
+              v-if="playingQueue"
+              class="mr-2"
+              variant="flat"
+              density="comfortable"
+              icon="refresh"
+              @click="getPlayingQueue"
+            />
+            <v-btn
               v-if="playingQueue?.currently_playing"
               color="primary"
               variant="flat"
@@ -33,7 +41,11 @@
                 {{ $t("venuePlayingQueue.currentlyPlaying") }}
               </h4>
               <v-list>
-                <track-item :track="playingQueue.currently_playing" />
+                <track-item
+                  :track="playingQueue.currently_playing"
+                  playback
+                  @update:playback="getPlayingQueue"
+                />
               </v-list>
             </v-col>
           </v-row>
@@ -53,7 +65,6 @@
                     v-for="(track, index) in playingQueue.queue"
                     :key="index"
                     :track="track"
-                    removable
                   />
                 </v-list>
               </v-col>
@@ -92,7 +103,7 @@ import { useSpotifyStore } from "~/store/spotify.js";
 import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 import TrackItem from "~/components/trackItem.vue";
 
-const { fetchQueue } = useSpotify();
+const { fetchQueue, submitTrackToQueue } = useSpotify();
 
 export default {
   components: { TrackItem },
@@ -118,7 +129,6 @@ export default {
         fetchQueue(storedToken)
           .then((res) => {
             this.playingQueue = res;
-            console.log(this.playingQueue);
           })
           .catch((err) => {
             if (err.status === 401) {
@@ -144,7 +154,32 @@ export default {
       }
     },
     addToQueue(track) {
-      console.log(track);
+      const storedToken = this.spotifyStore.token;
+
+      if (storedToken) {
+        submitTrackToQueue(storedToken, track.uri)
+          .then(() => {
+            this.$notify({
+              title: this.$t("success"),
+              text: this.$t("venuePlayingQueue.songAdded"),
+              type: "success",
+            });
+            setTimeout(() => {
+              this.getPlayingQueue();
+            }, 300);
+          })
+          .catch((err) => {
+            if (err.status === 401) {
+              // Token expired
+              this.spotifyStore.token = null;
+              this.$notify({
+                title: this.$t("error"),
+                text: this.$t("venuePlayingQueue.error.tokenExpired"),
+                type: "error",
+              });
+            }
+          });
+      }
     },
     async spotifyLogin() {
       const clientId = this.spotifyStore.clientId;

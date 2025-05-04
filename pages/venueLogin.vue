@@ -6,7 +6,7 @@
         <h2 class="font-weight-regular">
           {{ $t("venueLogin.description") }}
         </h2>
-        <v-form v-model="formValid" class="form mt-4">
+        <v-form v-model="formValid" class="form mt-4" @submit.prevent="submit">
           <v-text-field
             v-model="email"
             type="email"
@@ -26,7 +26,7 @@
             color="primary"
             class="ma-2"
             :disabled="!formValid"
-            @click="submit()"
+            type="submit"
           >
             {{ $t("venueLogin.access") }}
           </v-btn>
@@ -59,8 +59,10 @@ export default {
           body: { email: this.email, password: this.password },
         })
           .then((response) => {
-            this.websiteStore.token = this.token;
-            this.$router.push(`/venue/${response.id}/admin`);
+            this.websiteStore.token = response.token;
+            this.websiteStore.accessCode = response.accessCode;
+            this.websiteStore.loggedAuthority = "venue";
+            this.$router.push(`/venue/${response.id}`);
           })
           .catch((err) => {
             this.$notify({

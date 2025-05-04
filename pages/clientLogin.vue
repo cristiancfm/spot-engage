@@ -50,7 +50,8 @@ export default {
           body: { accessCode: this.accessCode },
         })
           .then((response) => {
-            this.websiteStore.accessCode = this.accessCode;
+            this.websiteStore.accessCode = response.accessCode;
+            this.websiteStore.loggedAuthority = "client";
             this.$router.push(`/venue/${response.id}`);
           })
           .catch((err) => {

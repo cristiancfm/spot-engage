@@ -25,9 +25,55 @@ export function useSpotify() {
     });
   };
 
+  const submitTrackToQueue = async (token, trackUri) => {
+    return $fetch(
+      `https://api.spotify.com/v1/me/player/queue?uri=${encodeURIComponent(trackUri)}`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
+  };
+
+  const fetchCurrentlyPlayingTrack = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/currently-playing", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
+  const startPlayback = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/play", {
+      method: "PUT",
+      headers: { Authorization: `Bearer ${token}` },
+      body: {
+        position_ms: 0,
+      },
+    });
+  };
+
+  const pausePlayback = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/pause", {
+      method: "PUT",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
+  const skipToNextTrack = async (token) => {
+    return $fetch("https://api.spotify.com/v1/me/player/next", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
   return {
     fetchProfile,
     fetchQueue,
     fetchTracks,
+    submitTrackToQueue,
+    fetchCurrentlyPlayingTrack,
+    startPlayback,
+    pausePlayback,
+    skipToNextTrack,
   };
 }

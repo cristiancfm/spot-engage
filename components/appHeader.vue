@@ -17,13 +17,18 @@
       <v-toolbar-items class="mr-2">
         <v-btn>{{ $t("menu.venues") }}</v-btn>
         <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
-        <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">{{
-          $t("menu.clientLogin")
-        }}</v-btn>
-        <v-btn v-if="!isLogged" :to="{ name: 'venueLogin' }">{{
-          $t("menu.venueLogin")
-        }}</v-btn>
-        <v-btn v-if="isLogged" @click="logout">{{ $t("logout") }}</v-btn>
+        <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">
+          <v-icon class="mr-1">person</v-icon>
+          {{ $t("menu.clientLogin") }}
+        </v-btn>
+        <v-btn v-if="!isLogged" :to="{ name: 'venueLogin' }">
+          <v-icon class="mr-1">store</v-icon>
+          {{ $t("menu.venueLogin") }}</v-btn
+        >
+        <v-btn v-if="isLogged" @click="logout">
+          <v-icon class="mr-1">logout</v-icon>
+          {{ $t("logout") }}
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -73,16 +78,20 @@
               :to="{ name: 'clientLogin' }"
               @click="dialog = false"
             >
-              <v-list-item-title>{{
-                $t("menu.clientLogin")
-              }}</v-list-item-title>
+              <v-list-item-title>
+                <v-icon>person</v-icon>
+                {{ $t("menu.clientLogin") }}
+              </v-list-item-title>
             </v-list-item>
             <v-list-item
               v-if="!isLogged"
               :to="{ name: 'venueLogin' }"
               @click="dialog = false"
             >
-              <v-list-item-title>{{ $t("menu.venueLogin") }}</v-list-item-title>
+              <v-list-item-title>
+                <v-icon>store</v-icon>
+                {{ $t("menu.venueLogin") }}
+              </v-list-item-title>
             </v-list-item>
             <v-list-item
               v-if="isLogged"
@@ -93,7 +102,10 @@
                 }
               "
             >
-              <v-list-item-title>{{ $t("logout") }}</v-list-item-title>
+              <v-list-item-title>
+                <v-icon>logout</v-icon>
+                {{ $t("logout") }}
+              </v-list-item-title>
             </v-list-item>
           </v-list>
         </v-card>
@@ -128,6 +140,7 @@ export default {
     logout() {
       this.websiteStore.accessCode = null;
       this.websiteStore.token = null;
+      this.websiteStore.loggedAuthority = null;
       this.$router.push("/");
     },
   },
