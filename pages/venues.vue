@@ -1,14 +1,14 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="7">
         <h2>{{ $t("venues.title1") }}</h2>
         <h3 class="font-weight-regular">
           {{ $t("venues.description1", { appName: $t("appName") }) }}
         </h3>
       </v-col>
-      <v-col>
-        <p>a</p>
+      <v-col cols="12" md="5">
+        <v-img src="/images/iphone-mockup.png" alt="Phone Mockup" />
       </v-col>
     </v-row>
     <v-row class="text-right">

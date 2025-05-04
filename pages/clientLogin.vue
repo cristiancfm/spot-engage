@@ -6,7 +6,7 @@
         <h2 class="font-weight-regular">
           {{ $t("clientLogin.description") }}
         </h2>
-        <v-form v-model="formValid" class="form mt-4">
+        <v-form v-model="formValid" class="form mt-4" @submit.prevent="submit">
           <v-text-field
             v-model="accessCode"
             :label="$t('clientLogin.accessCode')"
@@ -18,7 +18,7 @@
             color="primary"
             class="ma-2"
             :disabled="!formValid"
-            @click="submit()"
+            type="submit"
           >
             {{ $t("clientLogin.access") }}
           </v-btn>
