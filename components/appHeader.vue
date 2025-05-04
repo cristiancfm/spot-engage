@@ -15,7 +15,7 @@
       <v-spacer />
 
       <v-toolbar-items class="mr-2">
-        <v-btn>{{ $t("menu.venues") }}</v-btn>
+        <v-btn :to="{ name: 'venues' }">{{ $t("menu.venues") }}</v-btn>
         <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
         <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">
           <v-icon class="mr-1">person</v-icon>
@@ -67,7 +67,7 @@
             <v-list-item to="/" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.home") }}</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="dialog = false">
+            <v-list-item :to="{ name: 'venues' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.venues") }}</v-list-item-title>
             </v-list-item>
             <v-list-item :to="{ name: 'about' }" @click="dialog = false">

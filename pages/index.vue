@@ -21,7 +21,7 @@
           variant="flat"
           color="secondary"
           class="ma-2"
-          :to="{ name: 'venueLogin' }"
+          :to="{ name: 'venues' }"
           >{{ $t("index.secondaryButton") }}</v-btn
         >
       </v-col>

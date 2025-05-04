@@ -12,6 +12,7 @@
     "home": "Inicio",
     "venues": "Locales",
     "about": "Sobre nosotros",
+    "contact": "Contacto",
     "venueLogin": "Acceder como local",
     "clientLogin": "Acceder como cliente"
   },
@@ -20,6 +21,16 @@
     "description": "{appName} es la app que te permite elegir lo que suena en tus locales favoritos. Ahora, tú eres el DJ",
     "primaryButton": "Acceder como cliente",
     "secondaryButton": "Información para locales"
+  },
+  "venues": {
+    "title1": "Una nueva manera de conectar con tus clientes",
+    "description1": "{appName} te permite fidelizar a tus clientes a través de la música. Deja que ellos elijan lo que suena.",
+    "title2": "Funciones integradas para tu negocio",
+    "description2": "Permite que tus clientes visualicen la cola de reproducción del local y añadan sus propias canciones. Tú controlas la reproducción.",
+    "title3": "Personaliza la experiencia",
+    "description3": "Cámbialo todo.",
+    "actionTitle": "¿Listo para llevar tu negocio al siguiente nivel?",
+    "actionDescription": "Contacta con nosotros para obtener {appName} en tu local."
   },
   "clientLogin": {
     "title": "Acceso para clientes",
