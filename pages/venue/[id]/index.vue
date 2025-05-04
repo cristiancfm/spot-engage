@@ -53,11 +53,7 @@
               </a>
             </v-col>
             <v-col v-if="venue.socialURLs.tiktok" cols="auto">
-              <a
-                :href="venue.socialURLs.tiktok"
-                target="_blank"
-                title="TikTok"
-              >
+              <a :href="venue.socialURLs.tiktok" target="_blank" title="TikTok">
                 <v-img
                   src="/icons/socials/tiktok.svg"
                   height="30px"
