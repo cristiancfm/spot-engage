@@ -69,7 +69,7 @@
         <v-row>
           <v-col>
             <v-text-field
-              v-model="localVenue.facebook"
+              v-model="localVenue.socialURLs.facebook"
               label="Facebook"
               hide-details="auto"
               clearable
@@ -79,7 +79,7 @@
         <v-row>
           <v-col>
             <v-text-field
-              v-model="localVenue.twitter"
+              v-model="localVenue.socialURLs.twitter"
               label="Twitter"
               hide-details="auto"
               clearable
@@ -89,7 +89,7 @@
         <v-row>
           <v-col>
             <v-text-field
-              v-model="localVenue.tiktok"
+              v-model="localVenue.socialURLs.tiktok"
               label="Tiktok"
               hide-details="auto"
               clearable

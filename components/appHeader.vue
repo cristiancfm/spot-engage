@@ -140,6 +140,7 @@ export default {
     logout() {
       this.websiteStore.accessCode = null;
       this.websiteStore.token = null;
+      this.websiteStore.loggedAuthority = null;
       this.$router.push("/");
     },
   },

@@ -71,7 +71,9 @@
       <v-col cols="12" md="6">
         <v-tabs v-model="tab">
           <v-tab value="playingQueue">{{ $t("venue.playingQueue") }}</v-tab>
-          <v-tab value="settings">{{ $t("venue.settings") }}</v-tab>
+          <v-tab v-if="isVenueLogged" value="settings">{{
+            $t("venue.settings")
+          }}</v-tab>
         </v-tabs>
 
         <v-tabs-window v-model="tab">
@@ -109,6 +111,12 @@ export default {
   },
   computed: {
     ...mapStores(useWebsiteStore, useSpotifyStore),
+    isClientLogged() {
+      return this.websiteStore.loggedAuthority === "client";
+    },
+    isVenueLogged() {
+      return this.websiteStore.loggedAuthority === "venue";
+    },
   },
   created() {
     this.checkSpotifyCode();
