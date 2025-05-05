@@ -66,6 +66,17 @@
               max-width="800"
               style="margin: auto"
             />
+            <v-row class="mt-8">
+              <v-col>
+                <v-icon>campaign</v-icon>
+              </v-col>
+              <v-col>
+                <v-icon>playlist_add</v-icon>
+              </v-col>
+              <v-col>
+                <v-icon>settings</v-icon>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
