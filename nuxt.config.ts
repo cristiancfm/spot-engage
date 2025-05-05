@@ -22,6 +22,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  app: {
+    head: {
+      title: "Spot Engage",
+    }
+  },
   runtimeConfig: {
     public: {
       apiBase: "https://mock.apidog.com/m1/877274-858713-default",
