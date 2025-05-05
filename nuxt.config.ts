@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Spot Engage",
-    }
+    },
   },
   runtimeConfig: {
     public: {

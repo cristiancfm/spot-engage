@@ -23,7 +23,7 @@
             color="secondary"
             class="ma-2"
             :to="{ name: 'venues' }"
-          >{{ $t("index.secondaryButton") }}</v-btn
+            >{{ $t("index.secondaryButton") }}</v-btn
           >
         </v-col>
       </v-row>
@@ -45,5 +45,4 @@
 export default {};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

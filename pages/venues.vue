@@ -40,11 +40,11 @@
           </v-col>
           <v-col cols="12" sm="5">
             <h2>{{ $t("venues.title2") }}</h2>
-            <br >
+            <br />
             <h3 class="font-weight-regular">
               {{ $t("venues.description2", { appName: $t("appName") }) }}
             </h3>
-            <br >
+            <br />
             <h3 class="font-weight-regular">
               {{ $t("venues.description2_2") }}
             </h3>
