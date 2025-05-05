@@ -46,7 +46,7 @@
             </h3>
             <br >
             <h3 class="font-weight-regular">
-              {{ $t("venues.description2_2", { appName: $t("appName") }) }}
+              {{ $t("venues.description2_2") }}
             </h3>
           </v-col>
         </v-row>
