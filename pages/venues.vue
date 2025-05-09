@@ -19,7 +19,7 @@
       <v-container>
         <v-row align="center" class="my-10">
           <v-col cols="12" sm="7">
-            <v-carousel hide-delimiter-background :show-arrows="false">
+            <v-carousel hide-delimiter-background>
               <v-carousel-item
                 v-for="(item, i) in items"
                 :key="i"
@@ -68,13 +68,16 @@
             />
             <v-row class="mt-8">
               <v-col>
-                <v-icon>campaign</v-icon>
+                <v-icon :size="80">campaign</v-icon>
+                <h4 class="font-weight-regular">{{ $t("venues.feature1") }}</h4>
               </v-col>
               <v-col>
-                <v-icon>playlist_add</v-icon>
+                <v-icon :size="80">playlist_add</v-icon>
+                <h4 class="font-weight-regular">{{ $t("venues.feature2") }}</h4>
               </v-col>
               <v-col>
-                <v-icon>settings</v-icon>
+                <v-icon :size="80">settings</v-icon>
+                <h4 class="font-weight-regular">{{ $t("venues.feature3") }}</h4>
               </v-col>
             </v-row>
           </v-col>
@@ -87,11 +90,11 @@
           <v-col cols="12" sm="8">
             <h2>{{ $t("venues.title4") }}</h2>
             <h3 class="font-weight-regular">
-              {{ $t("venues.description4") }}
+              {{ $t("venues.description4", { appName: $t("appName") }) }}
             </h3>
           </v-col>
           <v-col>
-            <p>a</p>
+            <pricing-section />
           </v-col>
         </v-row>
       </v-container>
@@ -115,7 +118,10 @@
 </template>
 
 <script>
+import PricingSection from "~/components/pricingSection.vue";
+
 export default {
+  components: { PricingSection },
   data() {
     return {
       items: [
