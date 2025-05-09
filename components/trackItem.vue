@@ -16,20 +16,21 @@
         <v-progress-circular v-if="loading" indeterminate color="primary" />
         <div v-else>
           <v-btn
-            v-if="!isCurrentlyPlaying"
+            v-if="!isCurrentlyPlaying && isVenueLogged"
             variant="flat"
             density="comfortable"
             icon="play_arrow"
             @click="playTrack"
           />
           <v-btn
-            v-else-if="isCurrentlyPlaying"
+            v-else-if="isCurrentlyPlaying && isVenueLogged"
             variant="flat"
             density="comfortable"
             icon="pause"
             @click="pauseTrack"
           />
           <v-btn
+            v-if="isVenueLogged"
             variant="flat"
             density="comfortable"
             icon="skip_next"
@@ -52,6 +53,7 @@
 <script>
 import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.js";
+import { useWebsiteStore } from "~/store/website.js";
 
 const {
   fetchCurrentlyPlayingTrack,
@@ -83,7 +85,13 @@ export default {
     };
   },
   computed: {
-    ...mapStores(useSpotifyStore),
+    ...mapStores(useWebsiteStore, useSpotifyStore),
+    isClientLogged() {
+      return this.websiteStore.loggedAuthority === "client";
+    },
+    isVenueLogged() {
+      return this.websiteStore.loggedAuthority === "venue";
+    },
   },
   mounted() {
     if (this.playback) {
