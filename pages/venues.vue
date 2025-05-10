@@ -87,13 +87,13 @@
     <div>
       <v-container>
         <v-row class="my-10">
-          <v-col cols="12" sm="8">
+          <v-col cols="12" lg="6">
             <h2>{{ $t("venues.title4") }}</h2>
             <h3 class="font-weight-regular">
               {{ $t("venues.description4", { appName: $t("appName") }) }}
             </h3>
           </v-col>
-          <v-col>
+          <v-col cols="12" lg="6">
             <pricing-section />
           </v-col>
         </v-row>
@@ -107,7 +107,7 @@
             <h3 class="font-weight-regular">
               {{ $t("venues.actionDescription", { appName: $t("appName") }) }}
             </h3>
-            <v-btn variant="flat" color="primary" class="ma-2">{{
+            <v-btn variant="flat" color="primary" class="ma-2 px-10">{{
               $t("menu.contact")
             }}</v-btn>
           </v-col>
