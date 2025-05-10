@@ -35,7 +35,7 @@
         </v-row>
         <v-row
           v-if="searchResult && searchText"
-          style="max-height: 430px; overflow-y: auto"
+          style="max-height: calc(100vh - 200px); overflow-y: auto"
         >
           <v-col>
             <h4 class="ml-3">
