@@ -20,6 +20,7 @@
           </v-col>
         </v-row>
       </v-card-title>
+      <v-divider />
       <v-card-text>
         <v-row>
           <v-col>
