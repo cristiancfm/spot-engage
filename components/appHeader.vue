@@ -17,6 +17,7 @@
       <v-toolbar-items class="mr-2">
         <v-btn :to="{ name: 'venues' }">{{ $t("menu.venues") }}</v-btn>
         <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
+        <v-btn :to="{ name: 'contact' }">{{ $t("menu.contact") }}</v-btn>
         <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">
           <v-icon class="mr-1">person</v-icon>
           {{ $t("menu.clientLogin") }}
@@ -72,6 +73,9 @@
             </v-list-item>
             <v-list-item :to="{ name: 'about' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.about") }}</v-list-item-title>
+            </v-list-item>
+            <v-list-item :to="{ name: 'contact' }" @click="dialog = false">
+              <v-list-item-title>{{ $t("menu.contact") }}</v-list-item-title>
             </v-list-item>
             <v-list-item
               v-if="!isLogged"
