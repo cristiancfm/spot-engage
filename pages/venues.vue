@@ -2,7 +2,7 @@
   <div>
     <div>
       <v-container>
-        <v-row align="center" class="my-10">
+        <v-row align="center" class="my-5">
           <v-col cols="12" sm="8">
             <h2>{{ $t("venues.title1") }}</h2>
             <h3 class="font-weight-regular">
@@ -17,7 +17,7 @@
     </div>
     <div class="dark-section">
       <v-container>
-        <v-row align="center" class="my-10">
+        <v-row align="center" class="my-5">
           <v-col cols="12" sm="7">
             <v-carousel hide-delimiter-background>
               <v-carousel-item
@@ -54,7 +54,7 @@
     </div>
     <div>
       <v-container>
-        <v-row class="text-center my-10">
+        <v-row class="text-center my-5">
           <v-col>
             <h2>{{ $t("venues.title3") }}</h2>
             <h3 class="font-weight-regular">
@@ -68,15 +68,15 @@
             />
             <v-row class="mt-8">
               <v-col>
-                <v-icon :size="80">campaign</v-icon>
+                <v-icon :size="80" class="mb-2">campaign</v-icon>
                 <h4 class="font-weight-regular">{{ $t("venues.feature1") }}</h4>
               </v-col>
               <v-col>
-                <v-icon :size="80">playlist_add</v-icon>
+                <v-icon :size="80" class="mb-2">playlist_add</v-icon>
                 <h4 class="font-weight-regular">{{ $t("venues.feature2") }}</h4>
               </v-col>
               <v-col>
-                <v-icon :size="80">settings</v-icon>
+                <v-icon :size="80" class="mb-2">settings</v-icon>
                 <h4 class="font-weight-regular">{{ $t("venues.feature3") }}</h4>
               </v-col>
             </v-row>
@@ -86,7 +86,7 @@
     </div>
     <div>
       <v-container>
-        <v-row class="my-10">
+        <v-row class="my-5">
           <v-col cols="12" lg="6">
             <h2>{{ $t("venues.title4") }}</h2>
             <h3 class="font-weight-regular">
@@ -101,7 +101,7 @@
     </div>
     <div>
       <v-container>
-        <v-row class="text-center my-10">
+        <v-row class="text-center my-5">
           <v-col>
             <h2>{{ $t("venues.actionTitle") }}</h2>
             <h3 class="font-weight-regular">

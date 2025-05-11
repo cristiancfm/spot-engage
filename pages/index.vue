@@ -1,6 +1,13 @@
 <template>
   <div class="main-container">
-    <v-container>
+    <v-container class="pt-0">
+      <div class="vinyl-wrapper">
+        <img
+          class="spinning vinyl-img"
+          src="/images/vinyl.png"
+          alt=""
+        />
+      </div>
       <v-row class="text-center mt-8">
         <v-col>
           <h1 class="display">{{ $t("index.title") }}</h1>
@@ -45,4 +52,33 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+.main-container {
+  background: radial-gradient(75% 25% at 50% 0%, #e8f2ff, #fff);
+}
+.vinyl-wrapper {
+  height: 150px;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.vinyl-img {
+  width: 80vw;
+  max-width: 350px;
+  height: auto;
+}
+.spinning {
+  animation: spin 5s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <header>
     <!-- Desktop Menu -->
-    <v-toolbar app border class="d-none d-sm-flex">
+    <v-toolbar app border class="d-none d-sm-flex app-header">
       <v-toolbar-title>
         <router-link to="/" class="mx-2">
           <v-img
@@ -146,3 +146,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.app-header {
+  background: radial-gradient(
+    50% 75% at 50% 100%,
+    rgb(245, 250, 255) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+</style>
