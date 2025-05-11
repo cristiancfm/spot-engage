@@ -18,42 +18,43 @@
     </div>
     <div class="dark-section dark-gradient-section">
       <v-container>
-        <v-row class="text-center mt-5">
+        <v-row class="text-center my-10">
           <v-col>
             <h1>{{ $t("venues.title2") }}</h1>
-          </v-col>
-        </v-row>
-        <v-row align="center" class="my-5">
-          <v-col cols="12" md="7">
-            <v-carousel hide-delimiter-background height="400">
-              <v-carousel-item
-                v-for="(item, i) in items"
-                :key="i"
-                :src="item.src"
-                :alt="item.alt"
-                cover
-              >
-                <div class="carousel-overlay" />
+            <v-row align="center" class="text-left mt-5">
+            <v-col cols="12" md="7">
+              <v-carousel hide-delimiter-background height="400">
+                <v-carousel-item
+                  v-for="(item, i) in items"
+                  :key="i"
+                  :src="item.src"
+                  :alt="item.alt"
+                  cover
+                >
+                  <div class="carousel-overlay" />
 
-                <v-row align="end" class="h-100 pb-6 carousel-text">
-                  <v-col class="text-center">
-                    <h4>{{ item.title }}</h4>
-                    <p>{{ item.text }}</p>
-                  </v-col>
-                </v-row>
-              </v-carousel-item>
-            </v-carousel>
-          </v-col>
-          <v-col cols="12" md="5">
-            <h3 class="font-weight-regular">
-              {{ $t("venues.description2", { appName: $t("appName") }) }}
-            </h3>
-            <br />
-            <h3 class="font-weight-regular">
-              {{ $t("venues.description2_2") }}
-            </h3>
+                  <v-row align="end" class="h-100 pb-6 carousel-text">
+                    <v-col class="text-center">
+                      <h4>{{ item.title }}</h4>
+                      <p>{{ item.text }}</p>
+                    </v-col>
+                  </v-row>
+                </v-carousel-item>
+              </v-carousel>
+            </v-col>
+            <v-col cols="12" md="5">
+              <h3 class="font-weight-regular">
+                {{ $t("venues.description2", { appName: $t("appName") }) }}
+              </h3>
+              <br />
+              <h3 class="font-weight-regular">
+                {{ $t("venues.description2_2") }}
+              </h3>
+            </v-col>
+          </v-row>
           </v-col>
         </v-row>
+
       </v-container>
     </div>
     <div>
