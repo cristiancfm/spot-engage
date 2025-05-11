@@ -2,7 +2,7 @@
   <div class="main-container">
     <v-container class="pt-0">
       <div class="vinyl-wrapper">
-        <img class="spinning vinyl-img" src="/images/vinyl.png" alt="" >
+        <img class="spinning vinyl-img" src="/images/vinyl.png" alt="" />
       </div>
       <v-row class="text-center mt-8">
         <v-col>

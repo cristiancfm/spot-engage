@@ -25,11 +25,11 @@ export default defineNuxtConfig({
           light: {
             colors: {
               primary: "#5464c6",
-              secondary: "#4faca9"
-            }
-          }
-        }
-      }
+              secondary: "#4faca9",
+            },
+          },
+        },
+      },
     },
   },
   app: {
