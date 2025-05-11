@@ -1,7 +1,7 @@
 <template>
-  <v-row align="center">
-    <v-col cols="12" sm="6">
-      <v-card class="text-center">
+  <v-row justify="center" align="center">
+    <v-col cols="auto">
+      <v-card variant="outlined" class="text-center" min-width="300" max-width="400">
         <v-container class="pa-5">
           <v-row>
             <v-col>
@@ -36,8 +36,8 @@
         </v-container>
       </v-card>
     </v-col>
-    <v-col>
-      <v-card class="text-center">
+    <v-col cols="auto">
+      <v-card variant="outlined" class="text-center" min-width="300" max-width="400">
         <v-container class="pa-5">
           <v-row>
             <v-col>
