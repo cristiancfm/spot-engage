@@ -209,9 +209,13 @@
             <h3 class="font-weight-regular">
               {{ $t("venues.actionDescription", { appName: $t("appName") }) }}
             </h3>
-            <v-btn variant="flat" color="primary" class="ma-2 px-10">{{
-              $t("menu.contact")
-            }}</v-btn>
+            <v-btn
+              :to="{ name: 'contact' }"
+              variant="flat"
+              color="primary"
+              class="ma-2 px-10"
+              >{{ $t("menu.contact") }}</v-btn
+            >
           </v-col>
         </v-row>
       </v-container>

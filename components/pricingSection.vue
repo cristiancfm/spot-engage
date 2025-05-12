@@ -30,9 +30,13 @@
                   </ul>
                 </v-col>
               </v-row>
-              <v-btn variant="flat" color="primary" class="my-4 px-10">{{
-                $t("menu.contact")
-              }}</v-btn>
+              <v-btn
+                :to="{ name: 'contact' }"
+                variant="flat"
+                color="primary"
+                class="my-4 px-10"
+                >{{ $t("menu.contact") }}</v-btn
+              >
               <p class="text-caption">
                 {{ $t("venues.pricing.spotifyPremiumRequired") }}
               </p>
@@ -69,9 +73,13 @@
                   </ul>
                 </v-col>
               </v-row>
-              <v-btn variant="flat" color="primary" class="my-4 px-10">{{
-                $t("menu.contact")
-              }}</v-btn>
+              <v-btn
+                :to="{ name: 'contact' }"
+                variant="flat"
+                color="primary"
+                class="my-4 px-10"
+                >{{ $t("menu.contact") }}</v-btn
+              >
               <p class="text-caption">
                 {{ $t("venues.pricing.spotifyPremiumRequired") }}
               </p>
