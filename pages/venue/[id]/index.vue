@@ -114,7 +114,7 @@ export default {
       return this.websiteStore.loggedAuthority === "venue";
     },
   },
-  created() {
+  mounted() {
     this.checkSpotifyCode();
     this.fetchVenue();
   },
