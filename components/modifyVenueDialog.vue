@@ -20,7 +20,8 @@
           </v-col>
         </v-row>
       </v-card-title>
-      <v-card-text>
+      <v-divider />
+      <v-card-text style="overflow-y: auto">
         <v-row>
           <v-col>
             <v-text-field

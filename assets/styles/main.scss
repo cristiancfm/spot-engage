@@ -1,24 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter");
+@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One");
+
+:root {
+  --primary-color: #5464c6;
+  --primary-color-light: #8393ef;
+  --primary-color-dark: #3244aa;
+  --secondary-color: #4faca9;
+  --secondary-color-light: #8fd4d0;
+  --secondary-color-dark: #3b7f7a;
+}
 
 /* Global styles */
 body {
   font-family: Inter, sans-serif;
   font-size: 16px;
+  letter-spacing: -0.02em;
 }
 
 h1 {
   font-size: 44px;
   font-weight: 700;
+  line-height: normal;
+}
+
+h1.display {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  letter-spacing: 0.03em;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 h3 {
   font-size: 24px;
   font-weight: 700;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.v-btn {
+  text-decoration: none;
 }
 
 /* Notifications */
@@ -56,10 +86,29 @@ h3 {
   font-weight: 400 !important;
 }
 
+.v-btn--variant-flat.bg-primary {
+  border: 1px solid var(--primary-color-dark) !important;
+  box-shadow: inset 0 1px 0 0 var(--primary-color-light) !important;
+}
+
+.v-btn--variant-flat.bg-secondary {
+  border: 1px solid var(--secondary-color-dark) !important;
+  box-shadow: inset 0 1px 0 0 var(--secondary-color-light) !important;
+}
+
+.v-btn--variant-flat.bg-black {
+  border: 1px solid black !important;
+  box-shadow: inset 0 1px 0 0 #656565 !important;
+}
+
 .v-toolbar-items {
   align-items: center;
 }
 .v-toolbar-items .v-btn {
   height: 30px !important;
   border-radius: 3px !important;
+}
+
+.v-card--variant-outlined {
+  border: 1px solid #e4e4e4 !important;
 }

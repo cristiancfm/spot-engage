@@ -20,6 +20,21 @@ export default defineNuxtConfig({
       icons: {
         defaultSet: "md",
       },
+      theme: {
+        themes: {
+          light: {
+            colors: {
+              primary: "#5464c6",
+              secondary: "#4faca9",
+            },
+          },
+        },
+      },
+    },
+  },
+  app: {
+    head: {
+      title: "Spot Engage",
     },
   },
   runtimeConfig: {

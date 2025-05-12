@@ -1,7 +1,7 @@
 <template>
   <header>
     <!-- Desktop Menu -->
-    <v-toolbar app border class="d-none d-sm-flex">
+    <v-toolbar app border class="d-none d-sm-flex app-header">
       <v-toolbar-title>
         <router-link to="/" class="mx-2">
           <v-img
@@ -15,8 +15,9 @@
       <v-spacer />
 
       <v-toolbar-items class="mr-2">
-        <v-btn>{{ $t("menu.venues") }}</v-btn>
+        <v-btn :to="{ name: 'venues' }">{{ $t("menu.venues") }}</v-btn>
         <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
+        <v-btn :to="{ name: 'contact' }">{{ $t("menu.contact") }}</v-btn>
         <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">
           <v-icon class="mr-1">person</v-icon>
           {{ $t("menu.clientLogin") }}
@@ -67,11 +68,14 @@
             <v-list-item to="/" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.home") }}</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="dialog = false">
+            <v-list-item :to="{ name: 'venues' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.venues") }}</v-list-item-title>
             </v-list-item>
             <v-list-item :to="{ name: 'about' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.about") }}</v-list-item-title>
+            </v-list-item>
+            <v-list-item :to="{ name: 'contact' }" @click="dialog = false">
+              <v-list-item-title>{{ $t("menu.contact") }}</v-list-item-title>
             </v-list-item>
             <v-list-item
               v-if="!isLogged"
@@ -146,3 +150,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.app-header {
+  background: radial-gradient(
+    50% 75% at 50% 100%,
+    rgb(245, 250, 255) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+</style>

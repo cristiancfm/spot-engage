@@ -12,14 +12,53 @@
     "home": "Inicio",
     "venues": "Locales",
     "about": "Sobre nosotros",
+    "contact": "Contactar",
     "venueLogin": "Acceder como local",
     "clientLogin": "Acceder como cliente"
   },
+  "footer": {
+    "navigation": "Navegación"
+  },
   "index": {
     "title": "Elige la próxima canción",
-    "description": "{appName} es la app que te permite elegir lo que suena en tus locales favoritos. Ahora, tú eres el DJ",
+    "description": "{appName} es la app que te permite elegir lo que suena en tus locales favoritos. Ahora, tú eres el DJ.",
     "primaryButton": "Acceder como cliente",
     "secondaryButton": "Información para locales"
+  },
+  "venues": {
+    "title1": "Una nueva manera de conectar con tus clientes",
+    "description1": "{appName} te permite fidelizar a tus clientes a través de la música. Deja que ellos elijan lo que suena en tu local.",
+    "title2": "Haz sonar tu negocio sin límites",
+    "description2": "{appName} se adapta a todo tipo de locales. Solo necesitas una cuenta de Spotify Premium y un dispositivo para reproducir música.",
+    "description2_2": "Estos locales ya lo están usando.",
+    "title3": "Funciones integradas para tu negocio",
+    "description3": "Permite que tus clientes visualicen la cola de reproducción del local y añadan sus propias canciones. Tú controlas la reproducción.",
+    "title4": "Planes para todos",
+    "description4": "{appName} es gratis para los clientes. Los locales pueden elegir entre varios planes mensuales o anuales. Elige el que mejor se adapte a ti.",
+    "feature1": "Comparte el código de acceso del local con tus clientes",
+    "feature2": "Deja que los clientes añadan canciones a la cola",
+    "feature3": "Gestiona la cola de reproducción y las opciones del local",
+    "actionTitle": "¿Listo para llevar tu negocio al siguiente nivel?",
+    "actionDescription": "Contacta con nosotros para obtener {appName} en tu local.",
+    "pricing": {
+      "spotifyPremiumRequired": "Es necesario tener una cuenta de Spotify Premium",
+      "smallBusiness": {
+        "title": "Pequeños negocios",
+        "description": "Ideal para locales con menos de 150 m² de superficie.",
+        "price": "9,99€ al mes",
+        "benefit1": "Cola de reproducción pública",
+        "benefit2": "Añadir canciones",
+        "benefit3": "Control total del local",
+        "benefit4": "Soporte técnico"
+      },
+      "bigBusiness": {
+        "title": "Cadenas y grandes negocios",
+        "description": "Ideal para cadenas o locales con más de 150 m² de superficie.",
+        "price": "24,99€ al mes",
+        "benefit1": "Todos los beneficios del plan para pequeños negocios",
+        "benefit2": "Soporte técnico extendido"
+      }
+    }
   },
   "clientLogin": {
     "title": "Acceso para clientes",
@@ -50,7 +89,7 @@
     "title": "Cola de reproducción",
     "currentlyPlaying": "Reproduciendo ahora",
     "nextUp": "A continuación",
-    "empty": "No hay canciones en la cola de reproducción. ¿Estás reproduciendo música?",
+    "empty": "No hay canciones en la cola de reproducción. ¿Se está reproduciendo música?",
     "addSong": "Añadir canción",
     "removeSong": "Eliminar canción",
     "songAdded": "Canción añadida a la cola de reproducción",

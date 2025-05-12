@@ -147,7 +147,8 @@ export default {
       const code = params.get("code");
 
       const clientId = this.spotifyStore.clientId;
-      const redirectUri = `${import.meta.env.VITE_APP_URL}/venue/1`;
+      const id = this.$route.params.id;
+      const redirectUri = `${import.meta.env.VITE_APP_URL}/venue/${id}`;
       const verifier = localStorage.getItem("verifier");
 
       if (code && verifier) {
