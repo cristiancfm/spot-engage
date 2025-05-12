@@ -143,8 +143,7 @@ export default {
         });
     },
     async checkSpotifyCode() {
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get("code");
+      const code = this.$route.query.code;
 
       const clientId = this.spotifyStore.clientId;
       const id = this.$route.params.id;
