@@ -117,7 +117,7 @@ export default {
   computed: {
     ...mapStores(useSpotifyStore),
   },
-  created() {
+  mounted() {
     this.getPlayingQueue();
   },
   methods: {
