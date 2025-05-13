@@ -27,7 +27,7 @@
         >
         <v-btn
           v-if="isLogged && websiteStore.venue"
-          :to="{ name: 'venue-id', params: { id: 1 } }"
+          :to="{ name: 'venue-id', params: { id: websiteStore.venue.id } }"
         >
           <v-icon class="mr-1">store</v-icon>
           {{ websiteStore.venue.name }}</v-btn
@@ -102,7 +102,7 @@
             </v-list-item>
             <v-list-item
               v-if="isLogged && websiteStore.venue"
-              :to="{ name: 'venue-id', params: { id: 1 } }"
+              :to="{ name: 'venue-id', params: { id: websiteStore.venue.id } }"
               @click="dialog = false"
             >
               <v-list-item-title>
