@@ -182,9 +182,9 @@
         </v-row>
       </v-container>
     </div>
-    <div>
+    <div class="gradient-section-2">
       <v-container class="my-10">
-        <v-row class="text-center">
+        <v-row class="text-center mt-5">
           <v-col cols="12">
             <h1>{{ $t("venues.title4") }}</h1>
             <h3 class="font-weight-regular">
@@ -287,6 +287,10 @@ export default {
 
 .gradient-section {
   background: radial-gradient(50% 50% at 75% 50%, #e8f2ff, #fff);
+}
+
+.gradient-section-2 {
+  background: radial-gradient(75% 30% at 50% 0%, #e8f2ff, #fff);
 }
 
 .dark-gradient-section {
