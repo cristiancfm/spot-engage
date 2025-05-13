@@ -31,11 +31,12 @@
       </v-col>
       <v-col cols="4">
         <h4 class="mb-2">Todos los derechos reservados</h4>
-        <p>
+        <p class="mb-2">
           Aplicación web desarrollada como parte del Trabajo de Fin de Máster
           para el Máster Universitario en Diseño y Desarrollo de Interfaz de
           Usuario Web de la UNIR.
         </p>
+        <p>Creado por Cristian Ferreiro Montoiro.</p>
       </v-col>
     </v-row>
   </footer>

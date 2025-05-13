@@ -25,7 +25,10 @@
           <v-icon class="mr-1">store</v-icon>
           {{ $t("menu.venueLogin") }}</v-btn
         >
-        <v-btn v-if="isLogged && websiteStore.venue" :to="{ name: 'venue-id', params: { id: 1 } }">
+        <v-btn
+          v-if="isLogged && websiteStore.venue"
+          :to="{ name: 'venue-id', params: { id: 1 } }"
+        >
           <v-icon class="mr-1">store</v-icon>
           {{ websiteStore.venue.name }}</v-btn
         >
