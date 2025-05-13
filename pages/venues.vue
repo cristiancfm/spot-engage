@@ -1,11 +1,10 @@
 <template>
   <div>
     <div class="gradient-section">
-      <v-container>
-        <v-row align="center" class="my-5">
+      <v-container class="my-5">
+        <v-row align="center">
           <v-col cols="12" md="6">
             <h1>{{ $t("venues.title1") }}</h1>
-            <br />
             <h3 class="font-weight-regular">
               {{ $t("venues.description1", { appName: $t("appName") }) }}
             </h3>
@@ -17,7 +16,7 @@
       </v-container>
     </div>
     <div class="dark-section dark-gradient-section">
-      <v-container>
+      <v-container class="my-5">
         <v-row class="text-center my-10">
           <v-col>
             <h1>{{ $t("venues.title2") }}</h1>
@@ -57,11 +56,10 @@
       </v-container>
     </div>
     <div>
-      <v-container>
-        <v-row class="text-center my-5">
+      <v-container class="my-10">
+        <v-row class="text-center">
           <v-col>
             <h1>{{ $t("venues.title3") }}</h1>
-            <br />
             <h3 class="font-weight-regular">
               {{ $t("venues.description3") }}
             </h3>
@@ -185,11 +183,10 @@
       </v-container>
     </div>
     <div>
-      <v-container>
-        <v-row class="text-center my-5">
+      <v-container class="my-10">
+        <v-row class="text-center">
           <v-col cols="12">
             <h1>{{ $t("venues.title4") }}</h1>
-            <br />
             <h3 class="font-weight-regular">
               {{ $t("venues.description4", { appName: $t("appName") }) }}
             </h3>
@@ -201,21 +198,25 @@
       </v-container>
     </div>
     <div>
-      <v-container>
-        <v-row class="text-center my-5">
+      <v-container class="my-10">
+        <v-row class="text-center">
           <v-col>
             <h1>{{ $t("venues.actionTitle") }}</h1>
-            <br />
             <h3 class="font-weight-regular">
               {{ $t("venues.actionDescription", { appName: $t("appName") }) }}
             </h3>
+          </v-col>
+        </v-row>
+        <v-row class="text-center">
+          <v-col>
             <v-btn
               :to="{ name: 'contact' }"
               variant="flat"
               color="primary"
               class="ma-2 px-10"
-              >{{ $t("menu.contact") }}</v-btn
             >
+              {{ $t("menu.contact") }}
+            </v-btn>
           </v-col>
         </v-row>
       </v-container>
@@ -289,6 +290,6 @@ export default {
 }
 
 .dark-gradient-section {
-  background: radial-gradient(50% 25% at 50% 0%, #4959e6, #171717);
+  background: radial-gradient(50% 25% at 50% 0%, #4553cc, #171717);
 }
 </style>

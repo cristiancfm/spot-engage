@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter");
-@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 :root {
   --primary-color: #5464c6;
@@ -14,22 +14,21 @@
 body {
   font-family: Inter, sans-serif;
   font-size: 16px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.02em !important;
 }
 
 h1 {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: normal;
-}
-
-h1.display {
-  font-family: "Special Gothic Expanded One", sans-serif;
-  letter-spacing: 0.03em;
+  margin-bottom: 12pt;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -0.06em;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 1;
+  font-stretch: expanded;
 }
 
 h2 {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -38,6 +37,14 @@ h3 {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.5;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
 }
 
 a {

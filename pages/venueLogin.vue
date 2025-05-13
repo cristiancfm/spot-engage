@@ -3,9 +3,9 @@
     <v-row class="text-center">
       <v-col>
         <h1>{{ $t("venueLogin.title") }}</h1>
-        <h2 class="font-weight-regular">
+        <p class="font-weight-regular">
           {{ $t("venueLogin.description") }}
-        </h2>
+        </p>
         <v-form v-model="formValid" class="form mt-4" @submit.prevent="submit">
           <v-text-field
             v-model="email"

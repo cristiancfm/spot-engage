@@ -6,7 +6,7 @@
       </div>
       <v-row class="text-center mt-8">
         <v-col>
-          <h1 class="display">{{ $t("index.title") }}</h1>
+          <h1>{{ $t("index.title") }}</h1>
           <h2 class="font-weight-regular">
             {{ $t("index.description", { appName: $t("appName") }) }}
           </h2>
