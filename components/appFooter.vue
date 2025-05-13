@@ -24,12 +24,7 @@
           }}</router-link>
         </p>
         <p>
-          <router-link :to="{ name: 'about' }">{{
-            $t("menu.about")
-          }}</router-link>
-        </p>
-        <p>
-          <router-link :to="{ name: 'about' }">{{
+          <router-link :to="{ name: 'contact' }">{{
             $t("menu.contact")
           }}</router-link>
         </p>

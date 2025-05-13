@@ -88,8 +88,8 @@
 
 <script>
 import { mapStores } from "pinia";
-import { useWebsiteStore } from "~/store/website.js";
-import { useSpotifyStore } from "~/store/spotify.js";
+import { useWebsiteStore } from "~/store/website.ts";
+import { useSpotifyStore } from "~/store/spotify.ts";
 import { getAccessToken } from "~/utils/spotifyAuth.js";
 
 export default {
@@ -129,6 +129,7 @@ export default {
       })
         .then((response) => {
           this.venue = response;
+          this.websiteStore.venue = response;
         })
         .catch((err) => {
           this.$notify({

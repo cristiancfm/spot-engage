@@ -16,7 +16,6 @@
 
       <v-toolbar-items class="mr-2">
         <v-btn :to="{ name: 'venues' }">{{ $t("menu.venues") }}</v-btn>
-        <v-btn :to="{ name: 'about' }">{{ $t("menu.about") }}</v-btn>
         <v-btn :to="{ name: 'contact' }">{{ $t("menu.contact") }}</v-btn>
         <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">
           <v-icon class="mr-1">person</v-icon>
@@ -25,6 +24,10 @@
         <v-btn v-if="!isLogged" :to="{ name: 'venueLogin' }">
           <v-icon class="mr-1">store</v-icon>
           {{ $t("menu.venueLogin") }}</v-btn
+        >
+        <v-btn v-if="isLogged && websiteStore.venue" :to="{ name: 'venue-id', params: { id: 1 } }">
+          <v-icon class="mr-1">store</v-icon>
+          {{ websiteStore.venue.name }}</v-btn
         >
         <v-btn v-if="isLogged" @click="logout">
           <v-icon class="mr-1">logout</v-icon>
@@ -71,9 +74,6 @@
             <v-list-item :to="{ name: 'venues' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.venues") }}</v-list-item-title>
             </v-list-item>
-            <v-list-item :to="{ name: 'about' }" @click="dialog = false">
-              <v-list-item-title>{{ $t("menu.about") }}</v-list-item-title>
-            </v-list-item>
             <v-list-item :to="{ name: 'contact' }" @click="dialog = false">
               <v-list-item-title>{{ $t("menu.contact") }}</v-list-item-title>
             </v-list-item>
@@ -95,6 +95,16 @@
               <v-list-item-title>
                 <v-icon>store</v-icon>
                 {{ $t("menu.venueLogin") }}
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              v-if="isLogged && websiteStore.venue"
+              :to="{ name: 'venue-id', params: { id: 1 } }"
+              @click="dialog = false"
+            >
+              <v-list-item-title>
+                <v-icon>store</v-icon>
+                {{ websiteStore.venue.name }}
               </v-list-item-title>
             </v-list-item>
             <v-list-item
@@ -145,6 +155,7 @@ export default {
       this.websiteStore.accessCode = null;
       this.websiteStore.token = null;
       this.websiteStore.loggedAuthority = null;
+      this.websiteStore.venue = null;
       this.$router.push("/");
     },
   },
