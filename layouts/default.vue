@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <v-app>
     <app-header />
-    <slot />
+    <div class="flex-grow-1">
+      <slot />
+    </div>
     <app-footer />
-  </div>
+  </v-app>
 </template>

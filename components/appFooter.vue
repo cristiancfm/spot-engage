@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <v-row class="pa-8">
+    <v-row class="pa-8" no-gutters>
       <v-col cols="4">
         <router-link to="/">
           <v-img
