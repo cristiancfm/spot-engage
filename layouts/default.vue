@@ -1,9 +1,9 @@
 <template>
-  <v-app>
+  <div>
     <app-header />
-    <div class="flex-grow-1">
+    <v-main class="flex-grow-1">
       <slot />
-    </div>
+    </v-main>
     <app-footer />
-  </v-app>
+  </div>
 </template>
