@@ -159,6 +159,7 @@ export default {
       this.websiteStore.token = null;
       this.websiteStore.loggedAuthority = null;
       this.websiteStore.venue = null;
+      this.websiteStore.songsAdded = 0;
       this.$router.push("/");
     },
   },

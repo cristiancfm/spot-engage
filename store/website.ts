@@ -6,6 +6,7 @@ export const useWebsiteStore = defineStore("website", {
     token: null,
     loggedAuthority: null,
     venue: null,
+    songsAdded: 0,
   }),
   persist: {
     storage: piniaPluginPersistedstate.localStorage(),
