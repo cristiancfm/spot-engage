@@ -1,7 +1,8 @@
 <template>
   <v-list lines="two">
+    <v-list-subheader>{{ $t("venue.playingQueue") }}</v-list-subheader>
     <v-list-item>
-      <v-row align="center">
+      <v-row justify="space-between" align="center">
         <v-col>
           <v-list-item-title>{{
             $t("venueSettings.spotifyLogin.title")
@@ -16,7 +17,32 @@
           }}</v-btn>
         </v-col>
       </v-row>
-      <v-row align="center">
+    </v-list-item>
+    <v-list-item>
+      <v-row justify="space-between" align="center">
+        <v-col>
+          <v-list-item-title>{{
+            $t("venueSettings.limitTracks.title")
+          }}</v-list-item-title>
+          <v-list-item-subtitle>
+            {{ $t("venueSettings.limitTracks.description") }}
+          </v-list-item-subtitle>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn
+            color="black"
+            variant="flat"
+            @click="limitTracksDialog = true"
+            >{{ $t("venueSettings.limitTracks.button") }}</v-btn
+          >
+        </v-col>
+      </v-row>
+    </v-list-item>
+  </v-list>
+  <v-list lines="two">
+    <v-list-subheader>{{ $t("general") }}</v-list-subheader>
+    <v-list-item>
+      <v-row justify="space-between" align="center">
         <v-col>
           <v-list-item-title>{{
             $t("venueSettings.modifyVenue.title")
@@ -41,6 +67,11 @@
     :venue="venue"
     @update:dialog="modifyVenueDialog = false"
   />
+  <limit-tracks-dialog
+    :dialog="limitTracksDialog"
+    :tracks-limit="venue.tracksLimit"
+    @update:dialog="limitTracksDialog = false"
+  />
 </template>
 
 <script>
@@ -58,6 +89,7 @@ export default {
   data() {
     return {
       modifyVenueDialog: false,
+      limitTracksDialog: false,
     };
   },
   computed: {

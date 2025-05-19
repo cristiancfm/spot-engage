@@ -8,6 +8,7 @@
   "success": "Éxito",
   "error": "Error",
   "save": "Guardar",
+  "general": "General",
   "menu": {
     "home": "Inicio",
     "venues": "Locales",
@@ -108,11 +109,21 @@
       "title": "Iniciar sesión en Spotify",
       "description": "Para poder mostrar la cola de reproducción, necesitas iniciar sesión en Spotify."
     },
+    "limitTracks": {
+      "title": "Limitar número de canciones",
+      "description": "Limita el número de canciones que un cliente puede añadir a la cola de reproducción.",
+      "button": "Limitar canciones"
+    },
     "modifyVenue": {
       "title": "Modificar datos del local",
       "description": "Cambia el nombre, la descripción, la imagen y las redes sociales del local.",
       "button": "Modificar local"
     }
+  },
+  "limitTracks": {
+    "title": "Limitar número de canciones",
+    "description": "Limita el número de canciones que un cliente puede añadir en total a la cola de reproducción. Deja el campo en blanco para quitar el límite.",
+    "limit": "Límite"
   },
   "venueModify": {
     "title": "Modificar local",
