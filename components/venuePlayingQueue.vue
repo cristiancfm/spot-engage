@@ -102,6 +102,7 @@ import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.js";
 import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 import TrackItem from "~/components/trackItem.vue";
+import { useWebsiteStore } from "~/store/website.js";
 
 const { fetchQueue, submitTrackToQueue } = useSpotify();
 
@@ -115,7 +116,10 @@ export default {
     };
   },
   computed: {
-    ...mapStores(useSpotifyStore),
+    ...mapStores(useSpotifyStore, useWebsiteStore),
+    isClientLogged() {
+      return this.websiteStore.loggedAuthority === "client";
+    },
   },
   mounted() {
     this.getPlayingQueue();
@@ -154,11 +158,25 @@ export default {
       }
     },
     addToQueue(track) {
+      if (
+        this.isClientLogged &&
+        this.websiteStore.venue.tracksLimit !== null &&
+        this.websiteStore.songsAdded >= this.websiteStore.venue.tracksLimit
+      ) {
+        this.$notify({
+          title: this.$t("error"),
+          text: this.$t("venuePlayingQueue.error.limitReached"),
+          type: "error",
+        });
+        return;
+      }
+
       const storedToken = this.spotifyStore.token;
 
       if (storedToken) {
         submitTrackToQueue(storedToken, track.uri)
           .then(() => {
+            this.websiteStore.songsAdded++;
             this.$notify({
               title: this.$t("success"),
               text: this.$t("venuePlayingQueue.songAdded"),

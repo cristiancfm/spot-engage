@@ -95,13 +95,15 @@
     "songAdded": "Canción añadida a la cola de reproducción",
     "songRemoved": "Canción eliminada de la cola de reproducción",
     "search": {
+      "songsAdded": "{count} de {total} canciones añadidas",
       "placeholder": "Los resultados aparecerán aquí",
       "results": "Resultados"
     },
     "error": {
       "noQueue": "No se ha podido obtener la cola de reproducción",
       "noToken": "El local no ha iniciado sesión en Spotify. Pídele al personal que inicie sesión.",
-      "tokenExpired": "El token de acceso de Spotify ha caducado. Pídele al personal que inicie sesión de nuevo."
+      "tokenExpired": "El token de acceso de Spotify ha caducado. Pídele al personal que inicie sesión de nuevo.",
+      "limitReached": "Has alcanzado el límite de canciones que puedes añadir a la cola de reproducción."
     }
   },
   "venueSettings": {

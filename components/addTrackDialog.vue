@@ -22,6 +22,18 @@
       </v-card-title>
       <v-divider />
       <v-card-text>
+        <v-row v-if="this.websiteStore.venue.tracksLimit && isClientLogged">
+          <v-col>
+            <p class="text-body-2 text-center">
+              {{
+                $t("venuePlayingQueue.search.songsAdded", {
+                  count: this.websiteStore.songsAdded,
+                  total: this.websiteStore.venue.tracksLimit,
+                })
+              }}
+            </p>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col>
             <v-text-field
@@ -66,6 +78,7 @@
 <script>
 import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.js";
+import { useWebsiteStore } from "~/store/website.js";
 
 const { fetchTracks } = useSpotify();
 
@@ -85,7 +98,10 @@ export default {
     };
   },
   computed: {
-    ...mapStores(useSpotifyStore),
+    ...mapStores(useSpotifyStore, useWebsiteStore),
+    isClientLogged() {
+      return this.websiteStore.loggedAuthority === "client";
+    },
   },
   methods: {
     searchTracks() {
@@ -95,7 +111,6 @@ export default {
       fetchTracks(storedToken, this.searchText)
         .then((response) => {
           this.searchResult = response.tracks;
-          console.log(this.searchResult);
         })
         .catch((error) => {
           console.error(error);
