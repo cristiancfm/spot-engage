@@ -71,7 +71,7 @@
             />
             <v-row class="mt-8">
               <v-col>
-                <v-card variant="outlined">
+                <v-card variant="flat">
                   <v-container>
                     <v-icon :size="50" class="mb-4">
                       <svg
@@ -107,7 +107,7 @@
                 </v-card>
               </v-col>
               <v-col>
-                <v-card variant="outlined">
+                <v-card variant="flat">
                   <v-container>
                     <v-icon :size="50" class="mb-4">
                       <svg
@@ -143,7 +143,7 @@
                 </v-card>
               </v-col>
               <v-col>
-                <v-card variant="outlined">
+                <v-card variant="flat">
                   <v-container>
                     <v-icon :size="50" class="mb-4">
                       <svg

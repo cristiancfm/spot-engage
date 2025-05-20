@@ -40,7 +40,7 @@
     </v-toolbar>
 
     <!-- Mobile Menu -->
-    <v-toolbar app border class="d-flex d-sm-none">
+    <v-toolbar app border class="d-flex d-sm-none app-header">
       <v-toolbar-title>
         <router-link to="/" class="mx-2">
           <v-img
@@ -64,7 +64,7 @@
         transition="dialog-bottom-transition"
       >
         <v-card light>
-          <v-toolbar border>
+          <v-toolbar border class="app-header">
             <v-toolbar-title>Menu</v-toolbar-title>
             <v-spacer />
             <v-btn icon="close" @click="dialog = false" />
