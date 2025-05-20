@@ -1,7 +1,7 @@
 <template>
   <header>
     <!-- Desktop Menu -->
-    <v-toolbar app border class="d-none d-sm-flex app-header">
+    <v-toolbar app border class="d-none d-md-flex app-header">
       <v-toolbar-title>
         <router-link to="/" class="mx-2">
           <v-img
@@ -40,7 +40,7 @@
     </v-toolbar>
 
     <!-- Mobile Menu -->
-    <v-toolbar app border class="d-flex d-sm-none app-header">
+    <v-toolbar app border class="d-flex d-md-none app-header">
       <v-toolbar-title>
         <router-link to="/" class="mx-2">
           <v-img

@@ -1,7 +1,7 @@
 <template>
   <footer>
-    <v-row class="pa-8" no-gutters>
-      <v-col cols="4">
+    <v-row class="pa-8">
+      <v-col cols="12" md="4">
         <router-link to="/">
           <v-img
             src="/images/spot-engage-logo-small.png"
@@ -11,7 +11,7 @@
           />
         </router-link>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" md="4">
         <h4 class="mb-2">{{ $t("footer.navigation") }}</h4>
         <p>
           <router-link :to="{ name: 'index' }">{{
@@ -29,7 +29,7 @@
           }}</router-link>
         </p>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" md="4">
         <h4 class="mb-2">Todos los derechos reservados</h4>
         <p class="mb-2">
           Aplicación web desarrollada como parte del Trabajo de Fin de Máster
