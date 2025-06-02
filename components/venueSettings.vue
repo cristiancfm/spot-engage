@@ -44,7 +44,9 @@
     <v-list-item>
       <v-row justify="space-between" align="center">
         <v-col>
-          <v-list-item-title>{{ $t("venueSettings.accessCode.title") }}</v-list-item-title>
+          <v-list-item-title>{{
+            $t("venueSettings.accessCode.title")
+          }}</v-list-item-title>
           <v-list-item-subtitle>
             {{ $t("venueSettings.accessCode.description") }}
           </v-list-item-subtitle>

@@ -22,13 +22,13 @@
       </v-card-title>
       <v-divider />
       <v-card-text>
-        <v-row v-if="this.websiteStore.venue.tracksLimit && isClientLogged">
+        <v-row v-if="websiteStore.venue.tracksLimit && isClientLogged">
           <v-col>
             <p class="text-body-2 text-center">
               {{
                 $t("venuePlayingQueue.search.songsAdded", {
-                  count: this.websiteStore.songsAdded,
-                  total: this.websiteStore.venue.tracksLimit,
+                  count: websiteStore.songsAdded,
+                  total: websiteStore.venue.tracksLimit,
                 })
               }}
             </p>
