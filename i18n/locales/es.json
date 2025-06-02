@@ -7,7 +7,9 @@
   "search": "Buscar",
   "success": "Éxito",
   "error": "Error",
+  "copy": "Copiar",
   "save": "Guardar",
+  "close": "Cerrar",
   "general": "General",
   "menu": {
     "home": "Inicio",
@@ -116,6 +118,11 @@
       "description": "Limita el número de canciones que un cliente puede añadir a la cola de reproducción.",
       "button": "Limitar canciones"
     },
+    "accessCode": {
+      "title": "Ver código de acceso",
+      "description": "Visualiza el código de acceso que utilizarán los clientes para acceder al local.",
+      "button": "Ver código"
+    },
     "modifyVenue": {
       "title": "Modificar datos del local",
       "description": "Cambia el nombre, la descripción, la imagen y las redes sociales del local.",
@@ -126,6 +133,15 @@
     "title": "Limitar número de canciones",
     "description": "Limita el número de canciones que un cliente puede añadir en total a la cola de reproducción. Deja el campo en blanco para quitar el límite.",
     "limit": "Límite"
+  },
+  "accessCode": {
+    "title": "Ver código de acceso",
+    "description": "Este es el código de acceso que los clientes utilizan para entrar a tu local. Compártelo con ellos.",
+    "code": "Código de acceso",
+    "messages": {
+      "copied": "Código copiado al portapapeles",
+      "copyError": "Error al copiar el código al portapapeles"
+    }
   },
   "venueModify": {
     "title": "Modificar local",

@@ -103,11 +103,12 @@ import { useSpotifyStore } from "~/store/spotify.js";
 import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 import TrackItem from "~/components/trackItem.vue";
 import { useWebsiteStore } from "~/store/website.js";
+import AddTrackDialog from "~/components/dialogs/addTrackDialog.vue";
 
 const { fetchQueue, submitTrackToQueue } = useSpotify();
 
 export default {
-  components: { TrackItem },
+  components: { AddTrackDialog, TrackItem },
   data() {
     return {
       loading: false,

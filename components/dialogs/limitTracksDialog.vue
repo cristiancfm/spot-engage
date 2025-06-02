@@ -81,7 +81,7 @@ export default {
   methods: {
     onLimitChange(value) {
       this.localTracksLimit = value < 0 ? 0 : value;
-    }
-  }
+    },
+  },
 };
 </script>
