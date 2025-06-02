@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <v-app>
     <app-header />
-    <v-main class="flex-grow-1">
+
+    <v-main>
       <slot />
     </v-main>
+
     <app-footer />
-  </div>
+  </v-app>
 </template>
