@@ -7,22 +7,54 @@
             <span>{{ $t("venuePlayingQueue.title") }}</span>
           </v-col>
           <v-col cols="auto">
-            <v-btn
-              v-if="playingQueue"
-              class="mr-2"
-              variant="flat"
-              density="comfortable"
-              icon="refresh"
-              @click="getPlayingQueue"
-            />
-            <v-btn
-              v-if="playingQueue?.currently_playing"
-              color="primary"
-              variant="flat"
-              density="comfortable"
-              icon="add"
-              @click="addDialog = true"
-            />
+            <v-tooltip
+              location="bottom"
+              :text="$t('venuePlayingQueue.tvMode')"
+            >
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  v-if="playingQueue?.currently_playing && isVenueLogged"
+                  class="mr-2"
+                  variant="flat"
+                  density="comfortable"
+                  icon="tv"
+                  v-bind="props"
+                  @click=""
+                />
+              </template>
+            </v-tooltip>
+            <v-tooltip
+              location="bottom"
+              :text="$t('venuePlayingQueue.refresh')"
+            >
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  v-if="playingQueue"
+                  class="mr-2"
+                  variant="flat"
+                  density="comfortable"
+                  icon="refresh"
+                  v-bind="props"
+                  @click="getPlayingQueue"
+                />
+              </template>
+            </v-tooltip>
+            <v-tooltip
+              location="bottom"
+              :text="$t('venuePlayingQueue.addSong')"
+            >
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  v-if="playingQueue?.currently_playing"
+                  color="primary"
+                  variant="flat"
+                  density="comfortable"
+                  icon="add"
+                  v-bind="props"
+                  @click="addDialog = true"
+                />
+              </template>
+            </v-tooltip>
           </v-col>
         </v-row>
       </v-card-title>
@@ -120,6 +152,9 @@ export default {
     ...mapStores(useSpotifyStore, useWebsiteStore),
     isClientLogged() {
       return this.websiteStore.loggedAuthority === "client";
+    },
+    isVenueLogged() {
+      return this.websiteStore.loggedAuthority === "venue";
     },
   },
   mounted() {
