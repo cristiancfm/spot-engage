@@ -91,8 +91,11 @@ import { mapStores } from "pinia";
 import { useWebsiteStore } from "~/store/website.ts";
 import { useSpotifyStore } from "~/store/spotify.ts";
 import { getAccessToken } from "~/utils/spotifyAuth.js";
+import VenuePlayingQueue from "~/components/venues/venuePlayingQueue.vue";
+import VenueSettings from "~/components/venues/venueSettings.vue";
 
 export default {
+  components: { VenueSettings, VenuePlayingQueue },
   data() {
     return {
       loading: false,

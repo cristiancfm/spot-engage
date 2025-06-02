@@ -133,9 +133,9 @@
 import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.js";
 import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
-import TrackItem from "~/components/trackItem.vue";
 import { useWebsiteStore } from "~/store/website.js";
 import AddTrackDialog from "~/components/dialogs/addTrackDialog.vue";
+import TrackItem from "~/components/venues/trackItem.vue";
 
 const { fetchQueue, submitTrackToQueue } = useSpotify();
 
