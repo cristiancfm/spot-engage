@@ -11,6 +11,8 @@
   "save": "Guardar",
   "close": "Cerrar",
   "general": "General",
+  "requiredField": "Campo requerido",
+  "invalidField": "Campo inválido",
   "menu": {
     "home": "Inicio",
     "venues": "Locales",
@@ -61,6 +63,16 @@
         "benefit2": "Soporte técnico extendido"
       }
     }
+  },
+  "contact": {
+    "title": "Contacta con nosotros",
+    "description": "¿Tienes alguna duda o quieres más información sobre {appName}? Escríbenos y te responderemos lo antes posible.",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "submit": "Enviar",
+    "successMessage": "Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.",
+    "errorMessage": "Ha ocurrido un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
   },
   "clientLogin": {
     "title": "Acceso para clientes",
