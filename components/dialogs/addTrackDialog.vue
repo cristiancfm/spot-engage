@@ -77,8 +77,8 @@
 </template>
 <script>
 import { mapStores } from "pinia";
-import { useSpotifyStore } from "~/store/spotify.js";
-import { useWebsiteStore } from "~/store/website.js";
+import { useSpotifyStore } from "~/store/spotify.ts";
+import { useWebsiteStore } from "~/store/website.ts";
 
 const { fetchTracks } = useSpotify();
 
