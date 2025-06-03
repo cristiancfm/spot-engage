@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="!loading">
+  <v-container v-if="!loading" class="py-10">
     <v-row class="text-center">
       <v-col>
         <h1>{{ venue.name }}</h1>

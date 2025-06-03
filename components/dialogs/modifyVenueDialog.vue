@@ -107,6 +107,13 @@
         >
           {{ $t("save") }}
         </v-btn>
+        <v-btn
+          color="black"
+          variant="flat"
+          @click="$emit('update:dialog', false)"
+        >
+          {{ $t("cancel") }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

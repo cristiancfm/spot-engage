@@ -9,6 +9,7 @@
   "error": "Error",
   "copy": "Copiar",
   "save": "Guardar",
+  "cancel": "Cancelar",
   "close": "Cerrar",
   "general": "General",
   "requiredField": "Campo requerido",
@@ -153,8 +154,8 @@
     "description": "Este es el código de acceso que los clientes utilizan para entrar a tu local. Compártelo con ellos.",
     "code": "Código de acceso",
     "messages": {
-      "copied": "Código copiado al portapapeles",
-      "copyError": "Error al copiar el código al portapapeles"
+      "copied": "Código copiado al portapapeles.",
+      "copyError": "Error al copiar el código al portapapeles."
     }
   },
   "venueModify": {

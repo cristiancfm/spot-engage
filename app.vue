@@ -3,8 +3,8 @@
     <v-main>
       <NuxtNotifications
         position="top center"
-        :speed="500"
-        :width="300"
+        :speed="1000"
+        :width="350"
         classes="notification"
       />
       <NuxtLayout>

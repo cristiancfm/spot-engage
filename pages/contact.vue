@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
-    <v-container>
-      <v-row class="text-center pt-8">
+    <v-container class="py-10">
+      <v-row class="text-center">
         <v-col>
           <h1>{{ $t("contact.title") }}</h1>
           <h2 class="font-weight-regular">
@@ -39,6 +39,7 @@
                   color="primary"
                   variant="flat"
                   type="submit"
+                  class="ma-2 px-10"
                   :disabled="!valid"
                   @click.prevent="submitForm"
                 >
