@@ -98,7 +98,10 @@
   },
   "venue": {
     "playingQueue": "Cola de reproducción",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "error": {
+      "invalid": "Código de acceso inválido"
+    }
   },
   "venuePlayingQueue": {
     "title": "Cola de reproducción",
