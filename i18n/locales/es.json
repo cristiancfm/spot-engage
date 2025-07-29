@@ -107,7 +107,7 @@
     "title": "Cola de reproducción",
     "currentlyPlaying": "Reproduciendo ahora",
     "nextUp": "A continuación",
-    "empty": "No hay canciones en la cola de reproducción. ¿Se está reproduciendo música?",
+    "empty": "No hay canciones en la cola de reproducción",
     "tvMode": "Modo TV",
     "refresh": "Actualizar cola",
     "addSong": "Añadir canción",
@@ -120,10 +120,16 @@
       "results": "Resultados"
     },
     "error": {
-      "noQueue": "No se ha podido obtener la cola de reproducción",
-      "noToken": "El local no ha iniciado sesión en Spotify. Pídele al personal que inicie sesión.",
-      "tokenExpired": "El token de acceso de Spotify ha caducado. Pídele al personal que inicie sesión de nuevo.",
+      "noQueue": "No se ha podido obtener la cola de reproducción.",
+      "noToken": "No se ha iniciado sesión en Spotify.",
+      "tokenExpired": "El token de acceso de Spotify ha caducado.",
       "limitReached": "Has alcanzado el límite de canciones que puedes añadir a la cola de reproducción."
+    },
+    "tutorial": {
+      "title": "Realiza los siguientes pasos para configurar la cola de reproducción:",
+      "step1": "<b>Inicia sesión en Spotify</b> con una cuenta Premium en la <b>pestaña de Configuración</b>.",
+      "step2": "<b>Abre la aplicación de Spotify</b> con la cuenta elegida y comienza a <b>reproducir música</b>.",
+      "step3": "<b>Recarga la cola de reproducción</b> mediante el botón de la parte superior para ver las canciones."
     }
   },
   "venueSettings": {

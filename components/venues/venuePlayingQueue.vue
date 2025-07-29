@@ -64,6 +64,19 @@
           <v-col>
             <v-icon size="x-large" class="mb-2">error</v-icon>
             <p>{{ $t("venuePlayingQueue.error.noQueue") }}</p>
+            <div v-if="isVenueLogged" class="ma-4">
+              <v-divider />
+              <v-icon size="x-large" class="my-2">school</v-icon>
+              <div class="text-left">
+                <p>{{ $t("venuePlayingQueue.tutorial.title") }}</p>
+                <br />
+                <ul>
+                  <li v-html="$t('venuePlayingQueue.tutorial.step1')"></li>
+                  <li v-html="$t('venuePlayingQueue.tutorial.step2')"></li>
+                  <li v-html="$t('venuePlayingQueue.tutorial.step3')"></li>
+                </ul>
+              </div>
+            </div>
           </v-col>
         </v-row>
         <div v-else>
@@ -85,6 +98,19 @@
             <v-col>
               <v-icon size="x-large" class="mb-2">info</v-icon>
               <p>{{ $t("venuePlayingQueue.empty") }}</p>
+              <div v-if="isVenueLogged" class="ma-4">
+                <v-divider />
+                <v-icon size="x-large" class="my-2">school</v-icon>
+                <div class="text-left">
+                  <p>{{ $t("venuePlayingQueue.tutorial.title") }}</p>
+                  <br />
+                  <ul>
+                    <li v-html="$t('venuePlayingQueue.tutorial.step1')"></li>
+                    <li v-html="$t('venuePlayingQueue.tutorial.step2')"></li>
+                    <li v-html="$t('venuePlayingQueue.tutorial.step3')"></li>
+                  </ul>
+                </div>
+              </div>
             </v-col>
           </v-row>
           <div v-if="playingQueue.queue.length > 0">
@@ -171,7 +197,7 @@ export default {
             this.playingQueue = res;
           })
           .catch((err) => {
-            if (err.status === 401) {
+            if (err.status === 401 && this.isVenueLogged) {
               // Token expired
               this.spotifyStore.token = null;
               this.$notify({
@@ -185,12 +211,14 @@ export default {
             this.loading = false;
           });
       } else {
-        // No token
-        this.$notify({
-          title: this.$t("error"),
-          text: this.$t("venuePlayingQueue.error.noToken"),
-          type: "error",
-        });
+        if (this.isVenueLogged) {
+          // No token
+          this.$notify({
+            title: this.$t("error"),
+            text: this.$t("venuePlayingQueue.error.noToken"),
+            type: "error",
+          });
+        }
       }
     },
     addToQueue(track) {
