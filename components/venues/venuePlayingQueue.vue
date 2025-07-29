@@ -19,7 +19,7 @@
                   density="comfortable"
                   icon="tv"
                   v-bind="props"
-                  @click=""
+                  @click="tvDialog = true"
                 />
               </template>
             </v-tooltip>
@@ -152,6 +152,10 @@
       @update:dialog="addDialog = false"
       @update:add-to-queue="addToQueue"
     />
+    <tv-mode-dialog
+      :dialog="tvDialog"
+      @update:dialog="tvDialog = false"
+    />
   </v-container>
 </template>
 
@@ -162,16 +166,18 @@ import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 import { useWebsiteStore } from "~/store/website.js";
 import AddTrackDialog from "~/components/dialogs/addTrackDialog.vue";
 import TrackItem from "~/components/venues/trackItem.vue";
+import TvModeDialog from "~/components/dialogs/tvModeDialog.vue";
 
 const { fetchQueue, submitTrackToQueue } = useSpotify();
 
 export default {
-  components: { AddTrackDialog, TrackItem },
+  components: {TvModeDialog, AddTrackDialog, TrackItem },
   data() {
     return {
       loading: false,
       playingQueue: null,
       addDialog: false,
+      tvDialog: false,
     };
   },
   computed: {
