@@ -74,7 +74,7 @@
 
         <v-tabs-window v-model="tab">
           <v-tabs-window-item value="playingQueue">
-            <venue-playing-queue />
+            <venue-playing-queue :venue="venue" />
           </v-tabs-window-item>
           <v-tabs-window-item value="settings">
             <venue-settings :venue="venue" />

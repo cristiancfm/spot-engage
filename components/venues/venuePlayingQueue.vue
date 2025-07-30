@@ -152,7 +152,12 @@
       @update:dialog="addDialog = false"
       @update:add-to-queue="addToQueue"
     />
-    <tv-mode-dialog :dialog="tvDialog" @update:dialog="tvDialog = false" />
+    <tv-mode-dialog
+      :dialog="tvDialog"
+      :playing-queue="playingQueue"
+      :venue="venue"
+      @update:dialog="tvDialog = false"
+    />
   </v-container>
 </template>
 
@@ -169,6 +174,12 @@ const { fetchQueue, submitTrackToQueue } = useSpotify();
 
 export default {
   components: { TvModeDialog, AddTrackDialog, TrackItem },
+  props: {
+    venue: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
   data() {
     return {
       loading: false,

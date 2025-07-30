@@ -15,38 +15,55 @@
       </v-card-title>
       <v-card-text>
         <v-container>
-          <v-row justify="center">
-            <v-col cols="auto">
-              <h1>Local</h1>
+          <v-row v-if="venue" justify="center">
+            <v-col cols="auto" class="text-center">
+              <h1>{{ venue.name }}</h1>
             </v-col>
           </v-row>
-          <v-row>
+          <v-row v-if="playingQueue">
             <v-col>
-              <p>Cola de reproducción</p>
-              <p>Sonando ahora</p>
+              <h4>{{ $t("venuePlayingQueue.title") }}</h4>
+              <p>
+                {{ $t("venuePlayingQueue.currentlyPlaying") }}
+              </p>
               <v-img
-                src="https://via.placeholder.com/300"
-                height="200"
+                :src="playingQueue.currently_playing.album.images[1].url"
+                class="my-4"
+                height="300"
                 width="300"
-              ></v-img>
-              <p>Título</p>
-              <p>Artista</p>
+              />
+              <h2>{{ playingQueue.currently_playing.name }}</h2>
+              <h4>{{ playingQueue.currently_playing.artists[0].name }}</h4>
             </v-col>
             <v-col>
-              <p>A continuación</p>
+              <p>{{ $t("venuePlayingQueue.nextUp") }}</p>
               <v-list>
-                <v-list-item v-for="n in 5" :key="n">
-                  <v-list-item-title>Track {{ n }}</v-list-item-title>
-                </v-list-item>
+                <track-item
+                  v-for="(track, index) in playingQueue.queue.slice(0, 5)"
+                  :key="index"
+                  :track="track"
+                />
               </v-list>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col>
-              <p>Instrucciones</p>
-              <h2>Código</h2>
-            </v-col>
-          </v-row>
+          <template v-if="venue">
+            <v-row justify="center">
+              <v-col cols="auto" class="text-center">
+                <h4 style="font-weight: normal">
+                  {{
+                    $t("venuePlayingQueue.addSongsCTA", {
+                      appURL: appURL,
+                    })
+                  }}
+                </h4>
+              </v-col>
+            </v-row>
+            <v-row justify="center">
+              <v-col cols="auto">
+                <h1 class="code" style="margin: 0">{{ venue.accessCode }}</h1>
+              </v-col>
+            </v-row>
+          </template>
         </v-container>
       </v-card-text>
     </v-card>
@@ -54,16 +71,37 @@
 </template>
 
 <script>
+import TrackItem from "~/components/venues/trackItem.vue";
+
 export default {
+  components: { TrackItem },
   props: {
     dialog: {
       type: Boolean,
       default: false,
     },
+    playingQueue: {
+      type: Object,
+      default: null,
+    },
+    venue: {
+      type: Object,
+      default: null,
+    },
   },
   emits: ["update:dialog"],
-  data() {
-    return {};
+  computed: {
+    appURL() {
+      return import.meta.env.VITE_APP_URL;
+    },
   },
 };
 </script>
+
+<style>
+.code {
+  padding: 20px;
+  background: gainsboro;
+  border-radius: 10px;
+}
+</style>

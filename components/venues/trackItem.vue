@@ -13,27 +13,27 @@
         </v-list-item-subtitle>
       </v-col>
       <v-col v-if="playback" cols="auto">
-          <v-btn
-            v-if="!isCurrentlyPlaying && isVenueLogged"
-            variant="flat"
-            density="comfortable"
-            icon="play_arrow"
-            @click="playTrack"
-          />
-          <v-btn
-            v-else-if="isCurrentlyPlaying && isVenueLogged"
-            variant="flat"
-            density="comfortable"
-            icon="pause"
-            @click="pauseTrack"
-          />
-          <v-btn
-            v-if="isVenueLogged"
-            variant="flat"
-            density="comfortable"
-            icon="skip_next"
-            @click="skipTrack"
-          />
+        <v-btn
+          v-if="!isCurrentlyPlaying && isVenueLogged"
+          variant="flat"
+          density="comfortable"
+          icon="play_arrow"
+          @click="playTrack"
+        />
+        <v-btn
+          v-else-if="isCurrentlyPlaying && isVenueLogged"
+          variant="flat"
+          density="comfortable"
+          icon="pause"
+          @click="pauseTrack"
+        />
+        <v-btn
+          v-if="isVenueLogged"
+          variant="flat"
+          density="comfortable"
+          icon="skip_next"
+          @click="skipTrack"
+        />
       </v-col>
       <v-col v-if="addToQueue" cols="auto">
         <v-btn
