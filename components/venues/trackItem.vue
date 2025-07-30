@@ -13,8 +13,6 @@
         </v-list-item-subtitle>
       </v-col>
       <v-col v-if="playback" cols="auto">
-        <v-progress-circular v-if="loading" indeterminate color="primary" />
-        <div v-else>
           <v-btn
             v-if="!isCurrentlyPlaying && isVenueLogged"
             variant="flat"
@@ -36,7 +34,6 @@
             icon="skip_next"
             @click="skipTrack"
           />
-        </div>
       </v-col>
       <v-col v-if="addToQueue" cols="auto">
         <v-btn
@@ -80,8 +77,8 @@ export default {
   emits: ["update:add-to-queue", "update:playback"],
   data() {
     return {
-      loading: false,
       isCurrentlyPlaying: false,
+      playbackInterval: null,
     };
   },
   computed: {
@@ -96,25 +93,30 @@ export default {
   mounted() {
     if (this.playback) {
       this.checkCurrentlyPlayingTrack();
+      this.playbackInterval = setInterval(
+        this.checkCurrentlyPlayingTrack,
+        5000,
+      );
+    }
+  },
+  beforeUnmount() {
+    if (this.playbackInterval) {
+      clearInterval(this.playbackInterval);
     }
   },
   methods: {
     checkCurrentlyPlayingTrack() {
       const storedToken = this.spotifyStore.token;
 
-      if (storedToken) {
-        this.loading = true;
-        fetchCurrentlyPlayingTrack(storedToken)
-          .then((response) => {
-            this.isCurrentlyPlaying = response.is_playing;
-          })
-          .catch((error) => {
-            console.error(error);
-          })
-          .finally(() => {
-            this.loading = false;
-          });
-      }
+      if (!storedToken || !this.track?.id) return;
+
+      fetchCurrentlyPlayingTrack(storedToken)
+        .then((response) => {
+          this.isCurrentlyPlaying = response.is_playing;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
     playTrack() {
       const storedToken = this.spotifyStore.token;

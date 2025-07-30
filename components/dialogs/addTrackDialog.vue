@@ -79,10 +79,12 @@
 import { mapStores } from "pinia";
 import { useSpotifyStore } from "~/store/spotify.ts";
 import { useWebsiteStore } from "~/store/website.ts";
+import TrackItem from "~/components/venues/trackItem.vue";
 
 const { fetchTracks } = useSpotify();
 
 export default {
+  components: {TrackItem},
   props: {
     dialog: {
       type: Boolean,
