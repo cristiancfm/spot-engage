@@ -152,10 +152,7 @@
       @update:dialog="addDialog = false"
       @update:add-to-queue="addToQueue"
     />
-    <tv-mode-dialog
-      :dialog="tvDialog"
-      @update:dialog="tvDialog = false"
-    />
+    <tv-mode-dialog :dialog="tvDialog" @update:dialog="tvDialog = false" />
   </v-container>
 </template>
 
