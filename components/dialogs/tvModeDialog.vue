@@ -1,7 +1,15 @@
 <template>
   <v-dialog :model-value="dialog" fullscreen>
-    <v-card>
-      <v-card-title>
+    <v-card style="overflow: hidden">
+      <div
+        class="card-blur-background"
+        :style="{
+          backgroundImage: `url(${playingQueue.currently_playing.album.images[1].url})`,
+        }"
+      >
+        <div class="card-overlay" />
+      </div>
+      <v-card-text class="text-white" style="z-index: 1">
         <v-row justify="end">
           <v-col cols="auto">
             <v-btn
@@ -12,8 +20,6 @@
             />
           </v-col>
         </v-row>
-      </v-card-title>
-      <v-card-text>
         <v-container>
           <v-row v-if="venue" justify="center">
             <v-col cols="auto" class="text-center">
@@ -21,7 +27,7 @@
             </v-col>
           </v-row>
           <v-row v-if="playingQueue">
-            <v-col>
+            <v-col cols="6">
               <h4>{{ $t("venuePlayingQueue.title") }}</h4>
               <p>
                 {{ $t("venuePlayingQueue.currentlyPlaying") }}
@@ -32,10 +38,14 @@
                 height="300"
                 width="300"
               />
-              <h2>{{ playingQueue.currently_playing.name }}</h2>
-              <h4>{{ playingQueue.currently_playing.artists[0].name }}</h4>
+              <h2 class="text-truncate">
+                {{ playingQueue.currently_playing.name }}
+              </h2>
+              <h4 class="text-truncate" style="font-weight: normal">
+                {{ playingQueue.currently_playing.artists[0].name }}
+              </h4>
             </v-col>
-            <v-col>
+            <v-col cols="6">
               <p>{{ $t("venuePlayingQueue.nextUp") }}</p>
               <v-list>
                 <track-item
@@ -98,10 +108,32 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .code {
   padding: 20px;
-  background: gainsboro;
+  background: white;
   border-radius: 10px;
+  color: black;
+}
+.card-blur-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(40px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.v-list {
+  background: none;
+  color: white;
 }
 </style>
