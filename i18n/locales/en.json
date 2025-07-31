@@ -1,3 +1,183 @@
 {
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "appName": "Spot Engage",
+  "login": "Log In",
+  "logout": "Log Out",
+  "loading": "Loading...",
+  "search": "Search",
+  "success": "Success",
+  "error": "Error",
+  "copy": "Copy",
+  "save": "Save",
+  "cancel": "Cancel",
+  "close": "Close",
+  "general": "General",
+  "requiredField": "Required field",
+  "invalidField": "Invalid field",
+  "languages": {
+    "en": "English",
+    "es": "Spanish"
+  },
+  "menu": {
+    "home": "Home",
+    "venues": "Venues",
+    "contact": "Contact",
+    "venueLogin": "Venue Login",
+    "clientLogin": "Client Login",
+    "language": "Language"
+  },
+  "footer": {
+    "navigation": "Navigation"
+  },
+  "index": {
+    "title": "Choose the next song",
+    "description": "{appName} is the app that lets you choose what plays at your favorite venues. Now, you're the DJ.",
+    "primaryButton": "Client Access",
+    "secondaryButton": "Venue Information"
+  },
+  "venues": {
+    "title1": "A new way to connect with your customers",
+    "description1": "{appName} helps you build customer loyalty through music. Let them choose what plays at your venue.",
+    "title2": "Make your business sound limitless",
+    "description2": "{appName} adapts to all types of venues. All you need is a Spotify Premium account and a device to play music.",
+    "description2_2": "These venues are already using it.",
+    "title3": "Integrated features for your business",
+    "description3": "Let your customers view the venue's playback queue and add their own songs. You control the playback.",
+    "title4": "Plans for everyone",
+    "description4": "{appName} is free for customers. Businesses can choose from various plans depending on their venue type. Choose what suits you best.",
+    "feature1": "Share your venue’s access code with your customers",
+    "feature2": "Let customers add songs to the queue",
+    "feature3": "Manage the queue and venue settings",
+    "actionTitle": "Ready to take your business to the next level?",
+    "actionDescription": "Contact us to get {appName} for your venue.",
+    "pricing": {
+      "spotifyPremiumRequired": "A Spotify Premium account is required",
+      "smallBusiness": {
+        "title": "Small Businesses",
+        "description": "Ideal for venues under 150 m².",
+        "price": "€9.99 per month",
+        "benefit1": "Public playback queue",
+        "benefit2": "Add songs",
+        "benefit3": "Full venue control",
+        "benefit4": "Technical support"
+      },
+      "bigBusiness": {
+        "title": "Chains and Large Businesses",
+        "description": "Ideal for chains or venues over 150 m².",
+        "price": "€24.99 per month",
+        "benefit1": "All benefits of the small business plan",
+        "benefit2": "Extended technical support"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Have questions or want more info about {appName}? Send us a message and we’ll get back to you as soon as possible.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "successMessage": "Your message has been sent successfully. We'll contact you soon.",
+    "errorMessage": "An error occurred while sending your message. Please try again later."
+  },
+  "clientLogin": {
+    "title": "Client Access",
+    "description": "Enter the venue access code to continue",
+    "accessCode": "Access Code",
+    "access": "Access",
+    "error": {
+      "required": "Required field",
+      "invalid": "Invalid access code"
+    }
+  },
+  "venueLogin": {
+    "title": "Venue Access",
+    "description": "Enter your account details to log in",
+    "email": "Email",
+    "password": "Password",
+    "access": "Access",
+    "error": {
+      "required": "Required field",
+      "invalid": "Invalid email or password"
+    }
+  },
+  "venue": {
+    "playingQueue": "Playback Queue",
+    "settings": "Settings",
+    "error": {
+      "invalid": "Invalid access code"
+    }
+  },
+  "venuePlayingQueue": {
+    "title": "Playback Queue",
+    "currentlyPlaying": "Now Playing",
+    "nextUp": "Next Up",
+    "empty": "There are no songs in the playback queue. Ask the venue staff to start playing music on Spotify.",
+    "tvMode": "TV Mode",
+    "refresh": "Refresh Queue",
+    "addSong": "Add Song",
+    "removeSong": "Remove Song",
+    "songAdded": "Song added to the playback queue",
+    "songRemoved": "Song removed from the playback queue",
+    "addSongsCTA": "Go to {appURL} and enter this code to add songs:",
+    "search": {
+      "songsAdded": "{count} of {total} songs added",
+      "placeholder": "Results will appear here",
+      "results": "Results"
+    },
+    "error": {
+      "noQueue": "Could not retrieve the playback queue. Ask the venue staff to configure it.",
+      "noToken": "Not logged into Spotify.",
+      "tokenExpired": "Spotify access token has expired.",
+      "limitReached": "You’ve reached the limit of songs you can add to the queue."
+    },
+    "tutorial": {
+      "title": "Follow these steps to set up the playback queue:",
+      "step1": "<b>Log into Spotify</b> with a Premium account in the <b>Settings tab</b>.",
+      "step2": "<b>Open the Spotify app</b> with the chosen account and start <b>playing music</b>.",
+      "step3": "<b>Refresh the queue</b> using the button at the top to view the songs."
+    }
+  },
+  "venueSettings": {
+    "spotifyLogin": {
+      "title": "Log into Spotify",
+      "description": "To display the playback queue, you need to log into Spotify."
+    },
+    "limitTracks": {
+      "title": "Limit Number of Songs",
+      "description": "Limit how many songs a customer can add to the playback queue.",
+      "button": "Limit Songs"
+    },
+    "accessCode": {
+      "title": "View Access Code",
+      "description": "See the access code customers will use to join your venue.",
+      "button": "View Code"
+    },
+    "modifyVenue": {
+      "title": "Edit Venue Details",
+      "description": "Change the venue name, description, image, and social media links.",
+      "button": "Edit Venue"
+    }
+  },
+  "limitTracks": {
+    "title": "Limit Number of Songs",
+    "description": "Limit how many songs a customer can add in total to the playback queue. Leave the field blank to remove the limit.",
+    "limit": "Limit"
+  },
+  "accessCode": {
+    "title": "View Access Code",
+    "description": "This is the access code customers use to enter your venue. Share it with them.",
+    "code": "Access Code",
+    "messages": {
+      "copied": "Code copied to clipboard.",
+      "copyError": "Error copying code to clipboard."
+    }
+  },
+  "venueModify": {
+    "title": "Edit Venue",
+    "name": "Venue Name",
+    "description": "Venue Description",
+    "imageURL": "Venue Image (URL)",
+    "socials": "Social Media"
+  }
 }

@@ -14,12 +14,17 @@
   "general": "General",
   "requiredField": "Campo requerido",
   "invalidField": "Campo inválido",
+  "languages": {
+    "en": "Inglés",
+    "es": "Español"
+  },
   "menu": {
     "home": "Inicio",
     "venues": "Locales",
     "contact": "Contactar",
     "venueLogin": "Acceder como local",
-    "clientLogin": "Acceder como cliente"
+    "clientLogin": "Acceder como cliente",
+    "language": "Idioma"
   },
   "footer": {
     "navigation": "Navegación"

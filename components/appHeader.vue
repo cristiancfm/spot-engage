@@ -18,24 +18,46 @@
         <v-btn :to="{ name: 'venues' }">{{ $t("menu.venues") }}</v-btn>
         <v-btn :to="{ name: 'contact' }">{{ $t("menu.contact") }}</v-btn>
         <v-btn v-if="!isLogged" :to="{ name: 'clientLogin' }">
-          <v-icon class="mr-1">person</v-icon>
+          <v-icon size="large" class="mr-1">person</v-icon>
           {{ $t("menu.clientLogin") }}
         </v-btn>
         <v-btn v-if="!isLogged" :to="{ name: 'venueLogin' }">
-          <v-icon class="mr-1">store</v-icon>
+          <v-icon size="large" class="mr-1">store</v-icon>
           {{ $t("menu.venueLogin") }}</v-btn
         >
         <v-btn
           v-if="isLogged && websiteStore.venue"
           :to="{ name: 'venue-id', params: { id: websiteStore.venue.id } }"
         >
-          <v-icon class="mr-1">store</v-icon>
+          <v-icon size="large" class="mr-1">store</v-icon>
           {{ websiteStore.venue.name }}</v-btn
         >
         <v-btn v-if="isLogged" @click="logout">
-          <v-icon class="mr-1">logout</v-icon>
+          <v-icon size="large" class="mr-1">logout</v-icon>
           {{ $t("logout") }}
         </v-btn>
+        <v-tooltip location="bottom" :text="$t('menu.language')">
+          <template #activator="{ props }">
+            <v-btn v-bind="props">
+              <v-icon size="large">language</v-icon>
+              <v-icon size="large">arrow_drop_down</v-icon>
+              <v-menu activator="parent">
+                <v-list>
+                  <v-list-item @click="changeLocale('en')">
+                    <v-list-item-title>{{
+                      $t("languages.en")
+                    }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click="changeLocale('es')">
+                    <v-list-item-title>{{
+                      $t("languages.es")
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-btn>
+          </template>
+        </v-tooltip>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -124,6 +146,27 @@
                 {{ $t("logout") }}
               </v-list-item-title>
             </v-list-item>
+            <v-list-item>
+              <v-list-item-title>
+                <v-icon>language</v-icon>
+                {{ $t("menu.language") }}
+                <v-icon>arrow_drop_down</v-icon>
+                <v-menu activator="parent">
+                  <v-list>
+                    <v-list-item @click="changeLocale('en')">
+                      <v-list-item-title>{{
+                        $t("languages.en")
+                      }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="changeLocale('es')">
+                      <v-list-item-title>{{
+                        $t("languages.es")
+                      }}</v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+              </v-list-item-title>
+            </v-list-item>
           </v-list>
         </v-card>
       </v-dialog>
@@ -151,7 +194,7 @@ export default {
     },
   },
   methods: {
-    setLocale(locale) {
+    changeLocale(locale) {
       this.$i18n.locale = locale;
     },
     logout() {

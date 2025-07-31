@@ -84,7 +84,7 @@ import TrackItem from "~/components/venues/trackItem.vue";
 const { fetchTracks } = useSpotify();
 
 export default {
-  components: {TrackItem},
+  components: { TrackItem },
   props: {
     dialog: {
       type: Boolean,
