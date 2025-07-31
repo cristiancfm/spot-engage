@@ -19,7 +19,7 @@
                   density="comfortable"
                   icon="tv"
                   v-bind="props"
-                  @click=""
+                  @click="tvDialog = true"
                 />
               </template>
             </v-tooltip>
@@ -152,6 +152,12 @@
       @update:dialog="addDialog = false"
       @update:add-to-queue="addToQueue"
     />
+    <tv-mode-dialog
+      :dialog="tvDialog"
+      :playing-queue="playingQueue"
+      :venue="venue"
+      @update:dialog="tvDialog = false"
+    />
   </v-container>
 </template>
 
@@ -162,16 +168,26 @@ import { getAccessToken, redirectToAuthCodeFlow } from "~/utils/spotifyAuth.js";
 import { useWebsiteStore } from "~/store/website.js";
 import AddTrackDialog from "~/components/dialogs/addTrackDialog.vue";
 import TrackItem from "~/components/venues/trackItem.vue";
+import TvModeDialog from "~/components/dialogs/tvModeDialog.vue";
 
 const { fetchQueue, submitTrackToQueue } = useSpotify();
 
 export default {
-  components: { AddTrackDialog, TrackItem },
+  components: { TvModeDialog, AddTrackDialog, TrackItem },
+  props: {
+    venue: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
   data() {
     return {
       loading: false,
       playingQueue: null,
+      currentTrackId: null,
+      queueInterval: null,
       addDialog: false,
+      tvDialog: false,
     };
   },
   computed: {
@@ -185,6 +201,12 @@ export default {
   },
   mounted() {
     this.getPlayingQueue();
+    this.queueInterval = setInterval(this.checkForTrackChange, 5000);
+  },
+  beforeUnmount() {
+    if (this.queueInterval) {
+      clearInterval(this.queueInterval);
+    }
   },
   methods: {
     getPlayingQueue() {
@@ -195,6 +217,7 @@ export default {
         fetchQueue(storedToken)
           .then((res) => {
             this.playingQueue = res;
+            this.currentTrackId = res?.currently_playing?.id || null;
           })
           .catch((err) => {
             if (err.status === 401 && this.isVenueLogged) {
@@ -220,6 +243,32 @@ export default {
           });
         }
       }
+    },
+    checkForTrackChange() {
+      const storedToken = this.spotifyStore.token;
+
+      if (!storedToken) return;
+
+      fetchQueue(storedToken)
+        .then((res) => {
+          const newTrackId = res?.currently_playing?.id;
+
+          if (newTrackId && newTrackId !== this.currentTrackId) {
+            this.playingQueue = res;
+            this.currentTrackId = newTrackId;
+          }
+        })
+        .catch((err) => {
+          if (err.status === 401 && this.isVenueLogged) {
+            // Token expired
+            this.spotifyStore.token = null;
+            this.$notify({
+              title: this.$t("error"),
+              text: this.$t("venuePlayingQueue.error.tokenExpired"),
+              type: "error",
+            });
+          }
+        });
     },
     addToQueue(track) {
       if (
