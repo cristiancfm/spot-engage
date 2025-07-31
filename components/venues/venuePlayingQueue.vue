@@ -7,11 +7,8 @@
             <span>{{ $t("venuePlayingQueue.title") }}</span>
           </v-col>
           <v-col cols="auto">
-            <v-tooltip
-              location="bottom"
-              :text="$t('venuePlayingQueue.tvMode')"
-            >
-              <template v-slot:activator="{ props }">
+            <v-tooltip location="bottom" :text="$t('venuePlayingQueue.tvMode')">
+              <template #activator="{ props }">
                 <v-btn
                   v-if="playingQueue?.currently_playing && isVenueLogged"
                   class="mr-2"
@@ -27,7 +24,7 @@
               location="bottom"
               :text="$t('venuePlayingQueue.refresh')"
             >
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn
                   v-if="playingQueue"
                   class="mr-2"
@@ -43,7 +40,7 @@
               location="bottom"
               :text="$t('venuePlayingQueue.addSong')"
             >
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn
                   v-if="playingQueue?.currently_playing"
                   color="primary"
@@ -67,15 +64,13 @@
             <div v-if="isVenueLogged" class="ma-4">
               <v-divider />
               <v-icon size="x-large" class="my-2">school</v-icon>
-              <div class="text-left">
-                <p>{{ $t("venuePlayingQueue.tutorial.title") }}</p>
-                <br />
-                <ul>
-                  <li v-html="$t('venuePlayingQueue.tutorial.step1')"></li>
-                  <li v-html="$t('venuePlayingQueue.tutorial.step2')"></li>
-                  <li v-html="$t('venuePlayingQueue.tutorial.step3')"></li>
-                </ul>
-              </div>
+              <p>{{ $t("venuePlayingQueue.tutorial.title") }}</p>
+              <br />
+              <ul class="text-left">
+                <li v-html="$t('venuePlayingQueue.tutorial.step1')" />
+                <li v-html="$t('venuePlayingQueue.tutorial.step2')" />
+                <li v-html="$t('venuePlayingQueue.tutorial.step3')" />
+              </ul>
             </div>
           </v-col>
         </v-row>
@@ -101,15 +96,13 @@
               <div v-if="isVenueLogged" class="ma-4">
                 <v-divider />
                 <v-icon size="x-large" class="my-2">school</v-icon>
-                <div class="text-left">
-                  <p>{{ $t("venuePlayingQueue.tutorial.title") }}</p>
-                  <br />
-                  <ul>
-                    <li v-html="$t('venuePlayingQueue.tutorial.step1')"></li>
-                    <li v-html="$t('venuePlayingQueue.tutorial.step2')"></li>
-                    <li v-html="$t('venuePlayingQueue.tutorial.step3')"></li>
-                  </ul>
-                </div>
+                <p>{{ $t("venuePlayingQueue.tutorial.title") }}</p>
+                <br />
+                <ul class="text-left">
+                  <li v-html="$t('venuePlayingQueue.tutorial.step1')" />
+                  <li v-html="$t('venuePlayingQueue.tutorial.step2')" />
+                  <li v-html="$t('venuePlayingQueue.tutorial.step3')" />
+                </ul>
               </div>
             </v-col>
           </v-row>
