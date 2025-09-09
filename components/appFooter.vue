@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <v-row class="pa-8">
+    <v-row class="pa-6">
       <v-col cols="12" md="4">
         <router-link to="/">
           <v-img
@@ -45,3 +45,10 @@
 <script>
 export default {};
 </script>
+
+<style scoped>
+footer {
+  border-top: 1px solid #e0e0e0;
+  background: radial-gradient(75% 40% at 50% 0, #fafafa, #fff);
+}
+</style>

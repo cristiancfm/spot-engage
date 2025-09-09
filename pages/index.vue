@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <v-container class="pt-0">
+    <v-container class="pt-0 pb-10">
       <div class="vinyl-wrapper">
         <img class="spinning vinyl-img" src="/images/vinyl.png" alt="" />
       </div>
