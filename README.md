@@ -5,7 +5,12 @@ Spot Engage es una aplicación web que permite a los clientes de locales de host
 
 **Aplicación desplegada: [https://spot-engage.vercel.app](https://spot-engage.vercel.app).**
 
+### Código de acceso para clientes del local de pruebas
+``ABC-DEF``
 
+### Datos de acceso para el personal del local de pruebas
+- Correo electrónico: ``example@mail.com``
+- Contraseña: ``password``
 
 Los clientes pueden ver la cola de reproducción de un local en tiempo real y añadir sus propias canciones. El personal del local puede gestionar la cola de reproducción, los datos y la configuración del establecimiento.
 
