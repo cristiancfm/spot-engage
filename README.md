@@ -1,75 +1,40 @@
-# Nuxt Minimal Starter
+# Spot Engage
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Introducción
+Spot Engage es una aplicación web que permite a los clientes de locales de hostelería participar activamente en la selección de la música que suena durante su estancia. Se utiliza Spotify como proveedor de música.
+
+**Aplicación desplegada: [https://spot-engage.vercel.app](https://spot-engage.vercel.app).**
+
+
+
+Los clientes pueden ver la cola de reproducción de un local en tiempo real y añadir sus propias canciones. El personal del local puede gestionar la cola de reproducción, los datos y la configuración del establecimiento.
 
 ## Setup
 
-Make sure to install dependencies:
+Install dependencies:
 
-```bash
-# npm
+```
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server:
 
-```bash
-# npm
+```
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
 
 Build the application for production:
 
-```bash
-# npm
+```
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+npm run preview
+```
