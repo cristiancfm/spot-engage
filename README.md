@@ -3,6 +3,8 @@
 ## Introducción
 Spot Engage es una aplicación web que permite a los clientes de locales de hostelería participar activamente en la selección de la música que suena durante su estancia. Se utiliza Spotify como proveedor de música.
 
+Los clientes pueden ver la cola de reproducción de un local en tiempo real y añadir sus propias canciones. El personal del local puede gestionar la cola de reproducción, los datos y la configuración del establecimiento.
+
 **Aplicación desplegada: [https://spot-engage.vercel.app](https://spot-engage.vercel.app).**
 
 ### Código de acceso para clientes del local de pruebas
@@ -12,7 +14,7 @@ Spot Engage es una aplicación web que permite a los clientes de locales de host
 - Correo electrónico: ``example@mail.com``
 - Contraseña: ``password``
 
-Los clientes pueden ver la cola de reproducción de un local en tiempo real y añadir sus propias canciones. El personal del local puede gestionar la cola de reproducción, los datos y la configuración del establecimiento.
+---
 
 ## Setup
 
