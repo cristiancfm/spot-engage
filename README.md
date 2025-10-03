@@ -16,6 +16,8 @@ Los clientes pueden ver la cola de reproducción de un local en tiempo real y a�
 - Correo electrónico: ``example@mail.com``
 - Contraseña: ``password``
 
+Desarrollado como parte del Trabajo de Fin de Máster en Diseño y Desarrollo de Interfaz de Usuario Web de la Universidad Internacional de La Rioja (UNIR).
+
 ---
 
 ## Setup
