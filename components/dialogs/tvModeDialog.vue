@@ -1,5 +1,9 @@
 <template>
-  <v-dialog :model-value="dialog" fullscreen>
+  <v-dialog
+    :model-value="dialog"
+    fullscreen
+    @update:model-value="$emit('update:dialog', $event)"
+  >
     <v-card style="overflow: hidden">
       <div
         class="card-blur-background"
@@ -20,7 +24,7 @@
             />
           </v-col>
         </v-row>
-        <v-container>
+        <v-container style="max-width: 1200px">
           <v-row v-if="venue" justify="center">
             <v-col cols="auto" class="text-center">
               <h1>{{ venue.name }}</h1>
@@ -33,7 +37,7 @@
                 {{ $t("venuePlayingQueue.currentlyPlaying") }}
               </p>
               <v-img
-                :src="playingQueue.currently_playing.album.images[1].url"
+                :src="playingQueue.currently_playing.album.images[0].url"
                 class="my-4"
                 height="300"
                 width="300"

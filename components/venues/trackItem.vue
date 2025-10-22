@@ -2,7 +2,7 @@
   <v-list-item>
     <v-row align="center" class="flex-nowrap">
       <v-col cols="2">
-        <v-img :src="track.album.images[2].url" />
+        <v-img :src="track.album.images[1].url" />
       </v-col>
       <v-col class="flex-grow-1" style="min-width: 0">
         <v-list-item-title class="text-truncate">
