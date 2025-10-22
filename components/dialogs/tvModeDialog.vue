@@ -24,7 +24,7 @@
             />
           </v-col>
         </v-row>
-        <v-container style="max-width: 1200px">
+        <v-container>
           <v-row v-if="venue" justify="center">
             <v-col cols="auto" class="text-center">
               <h1>{{ venue.name }}</h1>

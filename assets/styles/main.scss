@@ -87,6 +87,10 @@ a.v-btn {
 }
 
 /* Component styles */
+.v-container {
+  max-width: 1200px !important;
+}
+
 .v-btn {
   text-transform: none !important;
   letter-spacing: 0 !important;
