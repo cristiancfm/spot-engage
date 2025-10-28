@@ -1,6 +1,6 @@
 # Spot Engage
 
-![Memoria_TFM](https://github.com/user-attachments/assets/7d20a8c2-e6f0-4931-b586-57be2a82effd)
+<img alt="spot-engage" src="https://github.com/user-attachments/assets/feee0f43-62ae-46e3-90db-423fd09efc5f" />
 
 ## Introducción
 Spot Engage es una aplicación web que permite a los clientes de locales de hostelería participar activamente en la selección de la música que suena durante su estancia. Se utiliza Spotify como proveedor de música.
